@@ -88,7 +88,8 @@ export default {
           });
           this.$router.push(`/user/${user.username}`);
         } else {
-          this.error = response.data.message;
+          this.error = response;
+          // this.error = response.data.message;
         }
       } catch (error) {
         this.$store.dispatch("auth/deleteAuthState");

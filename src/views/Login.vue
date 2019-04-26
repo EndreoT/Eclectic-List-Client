@@ -69,7 +69,7 @@ export default {
           this.$router.push(`/user/${user.username}`);
         } else {
           // Login unsuccessful
-          this.error = json.message;
+          this.error = response;
         }
       } catch (error) {
         this.$store.dispatch("auth/deleteAuthState");

@@ -27,30 +27,30 @@ import store from '../store/index'
 // const LOGIN_API_URL = "http://localhost:4000/api/auth/login";
 
 
-const GET_POST_API = 'https://eclectic-list.herokuapp.com/api/posts/';
-const DELETE_POST_API = 'https://eclectic-list.herokuapp.com/posts/delete/';
-const ALL_POSTS_API = 'https://eclectic-list.herokuapp.com/api/posts';
-const POSTS_BY_USER_API_URL = "https://eclectic-list.herokuapp.com/api/posts/postsByUser/";
+const GET_POST_API = 'https://eclectic-list-server.herokuapp.com/api/posts/';
+const DELETE_POST_API = 'https://eclectic-list-server.herokuapp.com/posts/delete/';
+const ALL_POSTS_API = 'https://eclectic-list-server.herokuapp.com/api/posts';
+const POSTS_BY_USER_API_URL = "https://eclectic-list-server.herokuapp.com/api/posts/postsByUser/";
 
-const CATEGORIES_API = 'https://eclectic-list.herokuapp.com/api/categories';
-const CATEGORY_API_URL = "https://eclectic-list.herokuapp.com/api/categories/";
-const POSTS_FOR_CATEGORY = "https://eclectic-list.herokuapp.com/api/posts/postsByCategory/";
+const CATEGORIES_API = 'https://eclectic-list-server.herokuapp.com/api/categories';
+const CATEGORY_API_URL = "https://eclectic-list-server.herokuapp.com/api/categories/";
+const POSTS_FOR_CATEGORY = "https://eclectic-list-server.herokuapp.com/api/posts/postsByCategory/";
 
-const GET_USER_API = 'https://eclectic-list.herokuapp.com/users/';
-const GET_USERS_API = 'https://eclectic-list.herokuapp.com/users';
+const GET_USER_API = 'https://eclectic-list-server.herokuapp.com/users/';
+const GET_USERS_API = 'https://eclectic-list-server.herokuapp.com/users';
 
-const COMMENTS_FOR_POST_API = 'https://eclectic-list.herokuapp.com/api/comments/commentsForPost/';
-const CREATE_COMMENT_API = 'https://eclectic-list.herokuapp.com/api/comments/';
+const COMMENTS_FOR_POST_API = 'https://eclectic-list-server.herokuapp.com/api/comments/commentsForPost/';
+const CREATE_COMMENT_API = 'https://eclectic-list-server.herokuapp.com/api/comments/';
 
-const UPLOAD_IMAGE_API = 'https://eclectic-list.herokuapp.com/api/images/';
-const UPLOAD_IMAGES_FOR_POST = 'https://eclectic-list.herokuapp.com/api/images/postMultipleImages/';
-const GET_ALL_AVATAR_IMAGES = 'https://eclectic-list.herokuapp.com/api/images/avatar';
-const GET_IMAGE_BY_ID = 'https://eclectic-list.herokuapp.com/api/images/getImageById/';
-const GET_IMAGES_FOR_POST = 'https://eclectic-list.herokuapp.com/api/images/getImagesForPost/';
-const SET_AVATAR_IMAGE_FOR_USER = 'https://eclectic-list.herokuapp.com/api/images/setAvatarImage';
+const UPLOAD_IMAGE_API = 'https://eclectic-list-server.herokuapp.com/api/images/';
+const UPLOAD_IMAGES_FOR_POST = 'https://eclectic-list-server.herokuapp.com/api/images/postMultipleImages/';
+const GET_ALL_AVATAR_IMAGES = 'https://eclectic-list-server.herokuapp.com/api/images/avatar';
+const GET_IMAGE_BY_ID = 'https://eclectic-list-server.herokuapp.com/api/images/getImageById/';
+const GET_IMAGES_FOR_POST = 'https://eclectic-list-server.herokuapp.com/api/images/getImagesForPost/';
+const SET_AVATAR_IMAGE_FOR_USER = 'https://eclectic-list-server.herokuapp.com/api/images/setAvatarImage';
 
-const SIGNUP_API_URL = "https://eclectic-list.herokuapp.com/api/auth/signup";
-const LOGIN_API_URL = "https://eclectic-list.herokuapp.com/api/auth/login";
+const SIGNUP_API_URL = "https://eclectic-list-server.herokuapp.com/api/auth/signup";
+const LOGIN_API_URL = "https://eclectic-list-server.herokuapp.com/api/auth/login";
 
 
 
