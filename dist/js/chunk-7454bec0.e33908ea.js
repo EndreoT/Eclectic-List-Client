@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-7454bec0"],{"0fc9b":function(e,t,s){"use strict";s.r(t);var n=function(){var e=this,t=e.$createElement,s=e._self._c||t;return s("h1",{staticClass:"title"},[e._v("Oops! No page exists for this web address.")])},o=[],c=s("2877"),i={},l=Object(c["a"])(i,n,o,!1,null,null,null);l.options.__file="NotARoute.vue";t["default"]=l.exports}}]);
-//# sourceMappingURL=chunk-7454bec0.e33908ea.js.map
