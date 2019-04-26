@@ -1,4 +1,7 @@
-# project
+# Eclectic List Client
+
+### Automatic build
+Files are automatically built on Heroku using "heroku-postbuild" script
 
 ## Project setup
 ```

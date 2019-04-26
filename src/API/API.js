@@ -1,59 +1,43 @@
 import axios from 'axios';
 import store from '../store/index'
 
-// const GET_POST_API = 'http://localhost:4000/api/posts/';
-// const DELETE_POST_API = 'http://localhost:4000/api/posts/delete/';
-// const ALL_POSTS_API = 'http://localhost:4000/api/posts';
-// const POSTS_BY_USER_API_URL = "http://localhost:4000/api/posts/postsByUser/";
+// Base URLs
+const localDevelopmentUrl = 'http://localhost:4000/';
+const productionHerokuUrl = 'https://eclectic-list-server.herokuapp.com/';
 
-// const CATEGORIES_API = 'http://localhost:4000/api/categories';
-// const CATEGORY_API_URL = "http://localhost:4000/api/categories/";
-// const POSTS_FOR_CATEGORY = "http://localhost:4000/api/posts/postsByCategory/";
+// Attach base url to axios requests
+const axiosInstance = axios.create({
+  baseURL: process.env.NODE_ENV === 'production' ? productionHerokuUrl : localDevelopmentUrl,
+});
 
-// const GET_USER_API = 'http://localhost:4000/users/';
-// const GET_USERS_API = 'http://localhost:4000/users';
+// API URLs
+const GET_POST_API = 'api/posts/';
+const DELETE_POST_API = 'api/posts/delete/';
+const ALL_POSTS_API = 'api/posts';
+const POSTS_BY_USER_API_URL = 'api/posts/postsByUser/';
 
-// const COMMENTS_FOR_POST_API = 'http://localhost:4000/api/comments/commentsForPost/';
-// const CREATE_COMMENT_API = 'http://localhost:4000/api/comments/';
+const CATEGORIES_API_URL = 'api/categories';
+const POSTS_FOR_CATEGORY = 'api/posts/postsByCategory/';
 
-// const UPLOAD_IMAGE_API = 'http://localhost:4000/api/images/';
-// const UPLOAD_IMAGES_FOR_POST = 'http://localhost:4000/api/images/postMultipleImages/';
-// const GET_ALL_AVATAR_IMAGES = 'http://localhost:4000/api/images/avatar';
-// const GET_IMAGE_BY_ID = 'http://localhost:4000/api/images/getImageById/';
-// const GET_IMAGES_FOR_POST = 'http://localhost:4000/api/images/getImagesForPost/';
-// const SET_AVATAR_IMAGE_FOR_USER = 'http://localhost:4000/api/images/setAvatarImage';
+const GET_USER_API = 'users/';
+const GET_USERS_API = 'users';
 
-// const SIGNUP_API_URL = "http://localhost:4000/api/auth/signup";
-// const LOGIN_API_URL = "http://localhost:4000/api/auth/login";
+const COMMENTS_FOR_POST_API = 'api/comments/commentsForPost/';
+const CREATE_COMMENT_API = 'api/comments/';
 
+const UPLOAD_IMAGE_API = 'api/images/';
+const UPLOAD_IMAGES_FOR_POST = 'api/images/postMultipleImages/';
+const GET_ALL_AVATAR_IMAGES = 'api/images/avatar';
+const GET_IMAGE_BY_ID = 'api/images/getImageById/';
+const GET_IMAGES_FOR_POST = 'api/images/getImagesForPost/';
+const SET_AVATAR_IMAGE_FOR_USER = 'api/images/setAvatarImage';
 
-const GET_POST_API = 'https://eclectic-list-server.herokuapp.com/api/posts/';
-const DELETE_POST_API = 'https://eclectic-list-server.herokuapp.com/posts/delete/';
-const ALL_POSTS_API = 'https://eclectic-list-server.herokuapp.com/api/posts';
-const POSTS_BY_USER_API_URL = "https://eclectic-list-server.herokuapp.com/api/posts/postsByUser/";
+const SIGNUP_API_URL = 'api/auth/signup';
+const LOGIN_API_URL = 'api/auth/login';
 
-const CATEGORIES_API = 'https://eclectic-list-server.herokuapp.com/api/categories';
-const CATEGORY_API_URL = "https://eclectic-list-server.herokuapp.com/api/categories/";
-const POSTS_FOR_CATEGORY = "https://eclectic-list-server.herokuapp.com/api/posts/postsByCategory/";
-
-const GET_USER_API = 'https://eclectic-list-server.herokuapp.com/users/';
-const GET_USERS_API = 'https://eclectic-list-server.herokuapp.com/users';
-
-const COMMENTS_FOR_POST_API = 'https://eclectic-list-server.herokuapp.com/api/comments/commentsForPost/';
-const CREATE_COMMENT_API = 'https://eclectic-list-server.herokuapp.com/api/comments/';
-
-const UPLOAD_IMAGE_API = 'https://eclectic-list-server.herokuapp.com/api/images/';
-const UPLOAD_IMAGES_FOR_POST = 'https://eclectic-list-server.herokuapp.com/api/images/postMultipleImages/';
-const GET_ALL_AVATAR_IMAGES = 'https://eclectic-list-server.herokuapp.com/api/images/avatar';
-const GET_IMAGE_BY_ID = 'https://eclectic-list-server.herokuapp.com/api/images/getImageById/';
-const GET_IMAGES_FOR_POST = 'https://eclectic-list-server.herokuapp.com/api/images/getImagesForPost/';
-const SET_AVATAR_IMAGE_FOR_USER = 'https://eclectic-list-server.herokuapp.com/api/images/setAvatarImage';
-
-const SIGNUP_API_URL = "https://eclectic-list-server.herokuapp.com/api/auth/signup";
-const LOGIN_API_URL = "https://eclectic-list-server.herokuapp.com/api/auth/login";
-
-
-
+// ***************************************
+// Functions to connect to API REST server
+// ***************************************
 
 // used to modify request by adding JWT to auth object
 function add_JWT_To_Response() {
@@ -64,10 +48,11 @@ function add_JWT_To_Response() {
   }
 };
 
+// Main api call function using Axios
 async function getResourceAxios(url) {
   try {
     // Success, 200 <= response.status < 300
-    const response = await axios.get(url);
+    const response = await axiosInstance.get(url);
     return response;
   } catch (error) {
     // Response.status not in [200, 299]
@@ -75,6 +60,7 @@ async function getResourceAxios(url) {
   }
 };
 
+// Get single post by id
 export default async function getPost(postId) {
   try {
     return await getResourceAxios(GET_POST_API + postId);
@@ -83,6 +69,8 @@ export default async function getPost(postId) {
     return error;
   }
 };
+
+// Get all posts
 export async function getAllPosts() {
   try {
     return await getResourceAxios(ALL_POSTS_API);
@@ -91,6 +79,7 @@ export async function getAllPosts() {
   }
 };
 
+// Get all posts by a user
 export async function getPostsByUser(userName) {
   try {
     return await getResourceAxios(POSTS_BY_USER_API_URL + userName);
@@ -99,7 +88,7 @@ export async function getPostsByUser(userName) {
   }
 }
 
-
+// Get all posts for a category
 export async function getPostsForCategory(category) {
   try {
     return await getResourceAxios(POSTS_FOR_CATEGORY + category);
@@ -127,6 +116,7 @@ export async function postModification(body, postURL, method) {
   }
 };
 
+// Delete post
 export async function deletePost(postId) {
   try {
     const response = await postModification({}, DELETE_POST_API + postId, 'DELETE');
@@ -137,18 +127,20 @@ export async function deletePost(postId) {
   }
 };
 
+// Get all categories
 export async function getCategories() {
   try {
-    const response = await getResourceAxios(CATEGORIES_API);
+    const response = await getResourceAxios(CATEGORIES_API_URL);
     return response;
   } catch (error) {
-    console.log("getCategories", error);
+    console.log('getCategories', error);
   }
 };
 
+// Get singular category
 export async function getCategory(categoryName) {
   try {
-    const res = await getResourceAxios(CATEGORY_API_URL + categoryName);
+    const res = await getResourceAxios(CATEGORIES_API_URL + categoryName);
     return res;
   } catch (error) {
     return error;
@@ -156,6 +148,7 @@ export async function getCategory(categoryName) {
 
 }
 
+// Upload single image
 export async function uploadSingleImage(image) { // Uses Axios
   const formData = new FormData();
   formData.append('file', image);
@@ -175,6 +168,7 @@ export async function uploadSingleImage(image) { // Uses Axios
   }
 }
 
+// Get user by username
 export async function getUser(username) {
   try {
     return await getResourceAxios(GET_USER_API + username);
@@ -183,11 +177,13 @@ export async function getUser(username) {
   }
 };
 
+// get all users
 export async function getUsers() {
   const res = await getResourceAxios(GET_USERS_API);
   return res;
 };
 
+// Get all avatar images
 export async function getAllAvatarImages() {
   try {
     const res = await getResourceAxios(GET_ALL_AVATAR_IMAGES);
@@ -197,6 +193,7 @@ export async function getAllAvatarImages() {
   }
 }
 
+// Get image by id
 export async function getImageById(ImageId) {
   try {
     const res = await getResourceAxios(GET_IMAGE_BY_ID + ImageId);
@@ -206,6 +203,7 @@ export async function getImageById(ImageId) {
   }
 }
 
+// get all images for post
 export async function getImagesForPost(postId) {
   try {
     const res = await getResourceAxios(GET_IMAGES_FOR_POST + postId);
@@ -215,6 +213,7 @@ export async function getImagesForPost(postId) {
   }
 }
 
+// Set user avatar image
 export async function setAvatarImageForUser(reqBody) {
   try {
     const response = await axios.put(SET_AVATAR_IMAGE_FOR_USER, reqBody);
@@ -224,6 +223,7 @@ export async function setAvatarImageForUser(reqBody) {
   }
 }
 
+// Upload multiple images for a post
 export async function uploadImagesForPost(images, postId) {
   const url = UPLOAD_IMAGES_FOR_POST + postId;
   const formData = new FormData();
@@ -248,14 +248,17 @@ export async function uploadImagesForPost(images, postId) {
 
 }
 
+// Get all comments for a post
 export async function getCommentsForPost(postId) {
   try {
     return await getResourceAxios(COMMENTS_FOR_POST_API + postId);
   } catch (error) {
     console.log(error);
+    return error;
   }
 };
 
+// Create a comment for a post
 export async function createComment(body) {
   try {
     const response = await axios(
@@ -272,6 +275,7 @@ export async function createComment(body) {
   }
 }
 
+// User signup/creation
 export async function signup(body) {
   try {
     const response = await axios(
@@ -287,6 +291,7 @@ export async function signup(body) {
   }
 }
 
+// User login
 export async function login(body) {
   try {
     const response = await axios(
@@ -301,20 +306,3 @@ export async function login(body) {
     return error;
   }
 }
-
-
-
-// OLD!
-// async function getResource(url) {
-  //   try {
-  //     const response = await fetch(url);
-  //     const json = await response.json();
-  //     const status = response.status;
-  //     const returnObj = { status };
-  //     if (status === 200) return Object.assign(returnObj, { resource: json });
-  //     return Object.assign(returnObj, { message: json.message });
-  //   } catch (error) {
-  //     console.log(error)
-  //     return error;
-  //   }
-  // };
