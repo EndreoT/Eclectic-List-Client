@@ -36,7 +36,8 @@ import PageTitle from "../components/PageTitle";
 
 import getPost, { postModification, getCategories } from "../API/API";
 
-const EDIT_MESSAGE_API_URL = "http://localhost:4000/api/posts/edit/";
+const EDIT_MESSAGE_API_URL = 'https://eclectic-list-server.herokuapp.com/api/posts/edit/'
+// const EDIT_MESSAGE_API_URL = "http://localhost:4000/api/posts/edit/";
 
 export default {
   name: "editPost",

@@ -74,7 +74,8 @@ import getPost, {
   uploadImagesForPost
 } from "../API/API";
 
-const POST_MESSAGE_API_URL = "http://localhost:4000/api/posts/createPost";
+const POST_MESSAGE_API_URL = 'https://eclectic-list-server.herokuapp.com/api/posts/createPost/'
+// const POST_MESSAGE_API_URL = "http://localhost:4000/api/posts/createPost";
 
 export default {
   name: "createPost",
