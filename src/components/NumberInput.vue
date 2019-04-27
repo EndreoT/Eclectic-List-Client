@@ -2,7 +2,7 @@
   <div class="form-group">
     <label>{{field.label}}</label>
     <input
-      class="form-group"
+      class="form-control"
       type="number"
       step="0.01"
       :name="field.name"

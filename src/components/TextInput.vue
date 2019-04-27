@@ -1,8 +1,8 @@
 <template>
   <div class="form-group">
     <h2>{{field.label}}</h2>
-    <textarea
-      class="form-group"
+    <input
+      class="form-control"
       type="text"
       :name="field.name"
       :value="formData[field.name]"
@@ -11,7 +11,7 @@
       :rows="field.rows"
       :cols="field.cols"
       :required="required"
-    ></textarea>
+    >
   </div>
 </template>
 

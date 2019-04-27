@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-
     <!-- Site Header -->
     <header class="container-fluid" id="header">
       <div class="row justify-content-md-center">
@@ -13,6 +12,9 @@
       <div class="row justify-content-md-center" id="navigation">
         <nav class="navbar bg-light">
           <ul class="nav">
+            <li class="nav-item">
+              <router-link to="/about" class="nav-link" href="#">About</router-link>
+            </li>
             <li class="nav-item">
               <router-link to="/categories" class="nav-link" href="#">Categories</router-link>
             </li>
@@ -41,7 +43,6 @@
             <li v-if="authenticated" class="nav-item">
               <label class="nav-link">Logged in as: {{username}}</label>
             </li>
-
           </ul>
         </nav>
 
@@ -66,7 +67,6 @@
             </div>
           </div>
         </div>
-        
       </div>
     </header>
     <router-view/>
