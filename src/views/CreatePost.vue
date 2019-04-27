@@ -69,13 +69,10 @@ import ImageInLineView from "../components/ImageInLineView";
 import schema from "../schema/schema";
 
 import getPost, {
-  postModification,
+  createPost,
   getCategories,
   uploadImagesForPost
 } from "../API/API";
-
-const POST_MESSAGE_API_URL = 'https://eclectic-list-server.herokuapp.com/api/posts/createPost/'
-// const POST_MESSAGE_API_URL = "http://localhost:4000/api/posts/createPost";
 
 export default {
   name: "createPost",
@@ -148,13 +145,12 @@ export default {
           category: this.formData.category,
           price: this.formData.price
         };
-        const newPost = await postModification(
-          body,
-          POST_MESSAGE_API_URL,
-          "post"
-        );
+        const newPost = await createPost(body);
+
         // Upload images separately from post
         await uploadImagesForPost(this.formData.images, newPost._id);
+
+        // Redirect to created post
         this.$router.push(`/posts/${newPost._id}`);
       } catch (error) {
         console.log(error);

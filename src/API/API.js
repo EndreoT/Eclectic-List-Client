@@ -1,13 +1,16 @@
 import axios from 'axios';
 import store from '../store/index'
 
-// Base URLs
+// Base URLs choices
 const localDevelopmentUrl = 'http://localhost:4000/';
 const productionHerokuUrl = 'https://eclectic-list-server.herokuapp.com/';
 
+// Base URL
+const baseURL = process.env.NODE_ENV === 'production' ? productionHerokuUrl : localDevelopmentUrl;
+
 // Attach base url to axios requests
 const axiosInstance = axios.create({
-  baseURL: process.env.NODE_ENV === 'production' ? productionHerokuUrl : localDevelopmentUrl,
+  baseURL,
 });
 
 // API URLs
@@ -15,6 +18,8 @@ const GET_POST_API = 'api/posts/';
 const DELETE_POST_API = 'api/posts/delete/';
 const ALL_POSTS_API = 'api/posts';
 const POSTS_BY_USER_API_URL = 'api/posts/postsByUser/';
+const CREATE_POST_API_URL = 'api/posts/createPost/';
+const EDIT_POST_API_URL = 'api/posts/edit/';
 
 const CATEGORIES_API_URL = 'api/categories';
 const POSTS_FOR_CATEGORY = 'api/posts/postsByCategory/';
@@ -98,13 +103,13 @@ export async function getPostsForCategory(category) {
 
 }
 
-// Create or edit post
-export async function postModification(body, postURL, method) {
+// Create post
+export async function createPost(body) {
   try {
-    const response = await axios(
+    const response = await axiosInstance(
       {
-        method,
-        url: postURL,
+        method: 'POST',
+        url: CREATE_POST_API_URL,
         data: body,
         headers: add_JWT_To_Response(),
       }
@@ -112,18 +117,42 @@ export async function postModification(body, postURL, method) {
     return response.data;
   } catch (error) {
     console.log(error)
-    return new Error(`Error in message modification using ${method} method`);
+    return error;
+  }
+};
+
+// Edit post
+export async function editPost(body, postId) {
+  try {
+    const response = await axiosInstance(
+      {
+        method: 'PUT',
+        url: EDIT_POST_API_URL + postId,
+        data: body,
+        headers: add_JWT_To_Response(),
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error)
+    return error;
   }
 };
 
 // Delete post
 export async function deletePost(postId) {
   try {
-    const response = await postModification({}, DELETE_POST_API + postId, 'DELETE');
-    return response;
+    const response = await axiosInstance(
+      {
+        method: 'DELETE',
+        url: DELETE_POST_API + postId,
+        headers: add_JWT_To_Response(),
+      }
+    );
+    return response.data;
   } catch (error) {
-    console.log(error);
-    return new Error('Error in deleting post.');
+    console.log(error)
+    return error;
   }
 };
 
@@ -134,6 +163,7 @@ export async function getCategories() {
     return response;
   } catch (error) {
     console.log('getCategories', error);
+    return error;
   }
 };
 
@@ -149,13 +179,14 @@ export async function getCategory(categoryName) {
 }
 
 // Upload single image
-export async function uploadSingleImage(image) { // Uses Axios
+export async function uploadSingleImage(image) {
   const formData = new FormData();
   formData.append('file', image);
   try {
-    const response = await axios.post(
-      UPLOAD_IMAGE_API,
-      formData,
+    const response = await axiosInstance({
+      url: UPLOAD_IMAGE_API,
+      data: formData,
+    }
     );
     const status = response.status;
     const returnObj = { status };
@@ -174,6 +205,7 @@ export async function getUser(username) {
     return await getResourceAxios(GET_USER_API + username);
   } catch (error) {
     console.log(error); //TODO change this
+    return error;
   }
 };
 
@@ -216,7 +248,7 @@ export async function getImagesForPost(postId) {
 // Set user avatar image
 export async function setAvatarImageForUser(reqBody) {
   try {
-    const response = await axios.put(SET_AVATAR_IMAGE_FOR_USER, reqBody);
+    const response = await axiosInstance.put(SET_AVATAR_IMAGE_FOR_USER, reqBody);
     return response;
   } catch (error) {
     return error;
@@ -232,9 +264,11 @@ export async function uploadImagesForPost(images, postId) {
     formData.append('file', image);
   }
   try {
-    const response = await axios.post(
+    const response = await axiosInstance({
+      method: 'POST',
       url,
-      formData,
+      data: formData,
+    }
     );
     const status = response.status;
     const returnObj = { status };
@@ -261,7 +295,7 @@ export async function getCommentsForPost(postId) {
 // Create a comment for a post
 export async function createComment(body) {
   try {
-    const response = await axios(
+    const response = await axiosInstance(
       {
         method: 'POST',
         url: CREATE_COMMENT_API,
@@ -278,7 +312,7 @@ export async function createComment(body) {
 // User signup/creation
 export async function signup(body) {
   try {
-    const response = await axios(
+    const response = await axiosInstance(
       {
         method: 'POST',
         url: SIGNUP_API_URL,
@@ -294,7 +328,7 @@ export async function signup(body) {
 // User login
 export async function login(body) {
   try {
-    const response = await axios(
+    const response = await axiosInstance(
       {
         method: 'POST',
         url: LOGIN_API_URL,

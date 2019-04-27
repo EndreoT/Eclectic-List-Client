@@ -1,11 +1,9 @@
 <template>
   <div class="container" id="page-content">
-
     <PageTitle :pageTitle="pageTitle"></PageTitle>
 
     <div class="container" id="content">
       <div v-if="!error">
-
         <!-- Edit post form -->
         <form @submit.prevent="editPost">
           <component
@@ -34,10 +32,7 @@ import TextInput from "../components/TextInput";
 import schema from "../schema/schema";
 import PageTitle from "../components/PageTitle";
 
-import getPost, { postModification, getCategories } from "../API/API";
-
-const EDIT_MESSAGE_API_URL = 'https://eclectic-list-server.herokuapp.com/api/posts/edit/'
-// const EDIT_MESSAGE_API_URL = "http://localhost:4000/api/posts/edit/";
+import getPost, { editPost, getCategories } from "../API/API";
 
 export default {
   name: "editPost",
@@ -77,13 +72,13 @@ export default {
       try {
         const response = await getPost(this.postId);
         if (response.status === 200) {
-          const post = response.resource;
+          const post = response.data;
           this.formData.category = post.category.category;
           this.formData.subject = post.subject;
           this.formData.description = post.description;
           this.formData.price = post.price;
         } else {
-          this.error = response.message;
+          this.error = response;
         }
       } catch (error) {
         console.log(error);
@@ -110,12 +105,10 @@ export default {
           category: this.formData.category,
           price: this.formData.price
         };
-        const json = await postModification(
-          body,
-          EDIT_MESSAGE_API_URL + this.postId,
-          "PUT"
-        );
-        this.$router.push(`/posts/${json._id}`);
+        const response = await editPost(body, this.postId);
+
+        // Redirect to edited post
+        this.$router.push(`/posts/${response._id}`);
       } catch (error) {
         console.log(error);
       }

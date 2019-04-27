@@ -1,13 +1,11 @@
 <template>
   <div class="container" id="page-content">
-
     <!-- If post exists then show it -->
     <div v-if="post">
       <h1 id="page-title">{{post.subject}} - ${{post.price}}</h1>
 
       <!-- Post -->
       <div class="container" id="content">
-
         <!-- Description -->
         <div class="row">
           <div class="col-md-12">
@@ -137,7 +135,6 @@
         <div v-if="comments.length" class="comments">
           <h2>Comments</h2>
           <ul class="list-group">
-
             <!-- Indivual comment layout -->
             <li
               class="list-group-item"
@@ -159,7 +156,6 @@
                 </div>
               </div>
             </li>
-
           </ul>
         </div>
         <div v-if="noComments">
@@ -256,10 +252,14 @@ export default {
       }
     },
     async getImagesForPost() {
-      const response = await getImagesForPost(this.postId);
-      response.forEach(item => {
-        this.images.push(item);
-      });
+      try {
+        const response = await getImagesForPost(this.postId);
+        response.forEach(item => {
+          this.images.push(item);
+        });
+      } catch (error) {
+        console.log(error);
+      }
     },
     async getComments() {
       try {
