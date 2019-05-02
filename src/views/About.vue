@@ -6,7 +6,7 @@
 
       <p class="text-left">
         Eclectic List is a
-        <strong>concept</strong> full stack web application for users to create posts containing text and images for selling items,
+        <strong>concept</strong> full stack web application for creating posts for selling items that can include images,
         comment on user posts, and choose profile avatar images.
         This website draws inspiration from sites as
         <a
@@ -37,15 +37,15 @@
           href="https://nodejs.org/en/"
           target="_blank"
         >Node.js</a> for the run-time environment.
-        Securely login using a
+        Securely access protected routes using a 
         <a
           href="https://jwt.io/"
           target="_blank"
-        >JSON Web Token (JWT)</a> and backend authentication via
+        >JSON Web Token (JWT)</a>, and backend authentication is routed through the
         <a
           href="http://www.passportjs.org/"
           target="_blank"
-        >Passport.js</a>.
+        >Passport.js</a> middleware.
         The
         <a href="https://vuex.vuejs.org/" target="_blank">Vuex</a> library for Vue allows for persistent user login.
         Lastly, images are stored using
@@ -58,15 +58,11 @@
       <p class="text-left">
         This app is hosted on two
         <a href="https://www.heroku.com/" target="_blank">Heroku</a> apps:
-        First, the server is a REST API, and the 'api/posts' endpoint can be found
+        First, the server side creates a RESTful API. An example of the the '/api/posts' endpoint can be found
         <a
           href="https://eclectic-list-server.herokuapp.com/api/posts"
           target="_blank"
-        >here</a> for example. Second, the Vue.js app is also served by an Express.js server on Heroku. For those curious about the build process for a Vue.js app,
-        building is done automatically on the Heroku side using the script:
-        <br>
-        <code>"heroku-postbuild": "npm install --only=dev --no-shrinkwrap && npm run build"</code>
-      </p>
+        >here</a>. Second, the Vue.js app is also served by an Express.js server on Heroku.
 
       <h2>Bio for Tristan Endreo</h2>
       <p class="text-left">

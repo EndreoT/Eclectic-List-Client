@@ -10,7 +10,6 @@ const router = new Router({
   routes: [
     {
       path: '/about',
-      alias: '/',
       name: 'about',
       component: () => import('./views/About.vue'),
     },
@@ -24,6 +23,7 @@ const router = new Router({
     },
     {
       path: '/categories',
+      alias: '/',
       name: 'categories',
       component: () => import('./views/Categories.vue'),
     },

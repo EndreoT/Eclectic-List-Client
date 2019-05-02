@@ -7,6 +7,9 @@
           <router-link id="site-name-link" to="/" href="#">Eclectic List</router-link>
         </h1>
       </div>
+      <div class="row justify-content-md-center">
+        <h6>(It may take up to 10 seconds to load content initially. Thank you for being patient.)</h6>
+      </div>
 
       <!-- Navigation -->
       <div class="row justify-content-md-center" id="navigation">
@@ -19,10 +22,10 @@
               <router-link to="/categories" class="nav-link" href="#">Categories</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/posts" class="nav-link" href="#">All Posts</router-link>
+              <router-link to="/posts" class="nav-link" href="#">Posts</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/users" class="nav-link" href="#">All Users</router-link>
+              <router-link to="/users" class="nav-link" href="#">Users</router-link>
             </li>
 
             <!-- Show links if not authenticated -->
