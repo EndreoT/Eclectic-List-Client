@@ -8,7 +8,7 @@
         </h1>
       </div>
       <div class="row justify-content-md-center">
-        <h6>(It may take up to 10 seconds to load content initially. Thank you for being patient.)</h6>
+        <h6>(It may take up to 10 seconds to load content initially. Thank you for your patience.)</h6>
       </div>
 
       <!-- Navigation -->
