@@ -1,9 +1,9 @@
 // server.js
+require('newrelic');
 
 const express = require('express');
 const path = require('path');
 const history = require('connect-history-api-fallback');
-require('newrelic');
 
 const app = express();
 
