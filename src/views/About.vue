@@ -85,7 +85,7 @@
             <p class="card-text">endreotm@gmail.com</p>
             <p class="card-text">
               <a
-                href="https://drive.google.com/file/d/127uSoTOKZQej0yxdk9wYassOV76OySfx/view?usp=sharing"
+                href="https://docs.google.com/document/d/1x0fQuCv6e3jpvP5Hmhu54XOtMCv6_cJJfCLrqIBn6d8/edit?usp=sharing"
                 target="_blank"
               >Resume</a>
             </p>
