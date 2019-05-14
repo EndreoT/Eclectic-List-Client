@@ -163,6 +163,5 @@ export default {
 <style>
 .btn-override {
   margin-bottom: 15px;
-  /* display: block; */
 }
 </style>

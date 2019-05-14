@@ -37,7 +37,7 @@
           href="https://nodejs.org/en/"
           target="_blank"
         >Node.js</a> for the run-time environment.
-        Securely access protected routes using a 
+        Securely access protected routes using a
         <a
           href="https://jwt.io/"
           target="_blank"
@@ -63,7 +63,23 @@
           href="https://eclectic-list-server.herokuapp.com/api/posts"
           target="_blank"
         >here</a>. Second, the Vue.js app is also served by an Express.js server on Heroku.
+      </p>
+      <a
+        href="https://github.com/EndreoT/Eclectic-List-Server"
+        class="btn btn-primary btn-lg mx-1"
+        role="button"
+        aria-disabled="true"
+        target="_blank"
+      >Server code repository</a>
+      <a
+        href="https://github.com/EndreoT/Eclectic-List-Client"
+        class="btn btn-primary btn-lg mx-1"
+        role="button"
+        aria-disabled="true"
+        target="_blank"
+      >Client code repository</a>
 
+      <!-- Bio -->
       <h2>Bio for Tristan Endreo</h2>
       <p class="text-left">
         Full stack and backend software developer looking forward to building scalable software that helps improve the lives of people.
@@ -77,6 +93,7 @@
         skills, rock climbing, running, and spending time with friends.
       </p>
 
+      <!-- Contact and links -->
       <div class="card bg-light mb-3 border-secondary">
         <div class="card-body">
           <h5 class="card-title text-center">Contact information</h5>
@@ -104,3 +121,11 @@
     </div>
   </div>
 </template>
+
+<style>
+#content {
+  padding-bottom: inherit;
+}
+</style>
+
+padding-bottom: inherit;
