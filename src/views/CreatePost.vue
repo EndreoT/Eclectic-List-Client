@@ -51,7 +51,7 @@
           ></ImageInLineView>
         </div>
 
-        <div class="row justify-content-md-center">
+        <div class="row justify-content-center">
           <button type="submit" class="btn btn-primary btn-override">Create Post</button>
         </div>
       </form>
@@ -148,7 +148,7 @@ export default {
         const newPost = await createPost(body);
 
         // Upload images separately from post
-        await uploadImagesForPost(this.formData.images, newPost._id);
+        uploadImagesForPost(this.formData.images, newPost._id);
 
         // Redirect to created post
         this.$router.push(`/posts/${newPost._id}`);

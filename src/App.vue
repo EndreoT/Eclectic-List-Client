@@ -3,9 +3,13 @@
     <!-- Site Header -->
     <header class="container-fluid" id="header">
       <div class="row justify-content-md-center">
-        <h1 id="site-name">
+        <div class="col-sm-12">
+          <h1 id="site-name">
           <router-link id="site-name-link" to="/" href="#">Eclectic List</router-link>
         </h1>
+
+        </div>
+        
       </div>
       <div class="row justify-content-md-center">
         <h6>(It may take up to 10 seconds to load content initially. Thank you for your patience.)</h6>
