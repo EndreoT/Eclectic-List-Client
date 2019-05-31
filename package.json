@@ -10,21 +10,21 @@
     "heroku-postbuild": "npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "connect-history-api-fallback": "^1.6.0",
-    "express": "^4.16.4",
-    "newrelic": "^5.7.0",
+    "express": "^4.17.1",
+    "newrelic": "^5.9.1",
     "tar": "^4.4.8",
     "vue": "^2.6.10",
     "vue-router": "^3.0.6",
-    "vuex": "^3.1.0",
-    "vuex-persist": "^2.0.0"
+    "vuex": "^3.1.1",
+    "vuex-persist": "^2.0.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.7.0",
-    "@vue/cli-plugin-eslint": "^3.7.0",
-    "@vue/cli-service": "^3.7.0",
+    "@vue/cli-plugin-babel": "^3.8.0",
+    "@vue/cli-plugin-eslint": "^3.8.0",
+    "@vue/cli-service": "^3.8.0",
     "@vue/eslint-config-airbnb": "^4.0.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
