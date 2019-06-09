@@ -99,7 +99,6 @@
         skills, rock climbing, running, and spending time with friends.
       </p>
 
-<<<<<<< HEAD
       <!-- Contact Section -->
       <section class="page-section" id="contact">
         <div class="container">
@@ -138,18 +137,6 @@
               <a
                 class="d-block"
                 href="https://docs.google.com/document/d/1x0fQuCv6e3jpvP5Hmhu54XOtMCv6_cJJfCLrqIBn6d8/edit"
-=======
-      <!-- Contact and links -->
-      <div class="card bg-light mb-3 border-secondary">
-        <div class="card-body">
-          <h5 class="card-title text-center">Contact information</h5>
-          <div class="text-left">
-            <p class="card-text">Tristan Endreo</p>
-            <p class="card-text">endreotm@gmail.com</p>
-            <p class="card-text">
-              <a
-                href="https://docs.google.com/document/d/1x0fQuCv6e3jpvP5Hmhu54XOtMCv6_cJJfCLrqIBn6d8/edit?usp=sharing"
->>>>>>> 4f382728a548d304efcc9056d863556abed76b09
                 target="_blank"
               >Resume</a>
             </div>
