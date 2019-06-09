@@ -62,9 +62,30 @@
         <a
           href="https://eclectic-list-server.herokuapp.com/api/posts"
           target="_blank"
+<<<<<<< HEAD
         >here</a>
         . Second, the Vue.js app is also served by an Express.js server on Heroku.
       </p>
+=======
+        >here</a>. Second, the Vue.js app is also served by an Express.js server on Heroku.
+      </p>
+      <a
+        href="https://github.com/EndreoT/Eclectic-List-Server"
+        class="btn btn-primary btn-lg mx-1"
+        role="button"
+        aria-disabled="true"
+        target="_blank"
+      >Server code repository</a>
+      <a
+        href="https://github.com/EndreoT/Eclectic-List-Client"
+        class="btn btn-primary btn-lg mx-1"
+        role="button"
+        aria-disabled="true"
+        target="_blank"
+      >Client code repository</a>
+
+      <!-- Bio -->
+>>>>>>> 4f382728a548d304efcc9056d863556abed76b09
       <h2>Bio for Tristan Endreo</h2>
       <p class="text-left">
         Full stack and backend software developer looking forward to building scalable software that helps improve the lives of people.
@@ -78,6 +99,7 @@
         skills, rock climbing, running, and spending time with friends.
       </p>
 
+<<<<<<< HEAD
       <!-- Contact Section -->
       <section class="page-section" id="contact">
         <div class="container">
@@ -116,6 +138,18 @@
               <a
                 class="d-block"
                 href="https://docs.google.com/document/d/1x0fQuCv6e3jpvP5Hmhu54XOtMCv6_cJJfCLrqIBn6d8/edit"
+=======
+      <!-- Contact and links -->
+      <div class="card bg-light mb-3 border-secondary">
+        <div class="card-body">
+          <h5 class="card-title text-center">Contact information</h5>
+          <div class="text-left">
+            <p class="card-text">Tristan Endreo</p>
+            <p class="card-text">endreotm@gmail.com</p>
+            <p class="card-text">
+              <a
+                href="https://docs.google.com/document/d/1x0fQuCv6e3jpvP5Hmhu54XOtMCv6_cJJfCLrqIBn6d8/edit?usp=sharing"
+>>>>>>> 4f382728a548d304efcc9056d863556abed76b09
                 target="_blank"
               >Resume</a>
             </div>
@@ -125,3 +159,11 @@
     </div>
   </div>
 </template>
+
+<style>
+#content {
+  padding-bottom: inherit;
+}
+</style>
+
+padding-bottom: inherit;
