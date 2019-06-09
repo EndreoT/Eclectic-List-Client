@@ -62,11 +62,6 @@
         <a
           href="https://eclectic-list-server.herokuapp.com/api/posts"
           target="_blank"
-<<<<<<< HEAD
-        >here</a>
-        . Second, the Vue.js app is also served by an Express.js server on Heroku.
-      </p>
-=======
         >here</a>. Second, the Vue.js app is also served by an Express.js server on Heroku.
       </p>
       <a
@@ -85,7 +80,6 @@
       >Client code repository</a>
 
       <!-- Bio -->
->>>>>>> 4f382728a548d304efcc9056d863556abed76b09
       <h2>Bio for Tristan Endreo</h2>
       <p class="text-left">
         Full stack and backend software developer looking forward to building scalable software that helps improve the lives of people.
