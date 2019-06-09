@@ -6,6 +6,7 @@ import BootstrapVue from 'bootstrap-vue';
 // Font awesome imports
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope, faPhone, faFile } from '@fortawesome/free-solid-svg-icons';
+import {faIdCard} from '@fortawesome/free-regular-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
@@ -15,11 +16,11 @@ import App from './App.vue';
 import router from './router';
 import store from './store/index';
 
-// Bootstrap config
+// Bootstrap
 Vue.use(BootstrapVue);
 
 // Font awesome config
-library.add(faEnvelope, faPhone, faGithub, faLinkedin, faFile);
+library.add(faEnvelope, faPhone, faGithub, faLinkedin, faFile, faIdCard);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 dom.watch();
 

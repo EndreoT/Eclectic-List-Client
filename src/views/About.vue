@@ -134,6 +134,14 @@
                 target="_blank"
               >Resume</a>
             </div>
+            <div class="col-lg-2 mr-auto text-center">
+              <svg class="far fa-id-card fa-3x mb-3 text-muted"></svg>
+              <a
+                class="d-block"
+                href="https://endreot.github.io/Portfolio/"
+                target="_blank"
+              >Portfolio</a>
+            </div>
           </div>
         </div>
       </section>
