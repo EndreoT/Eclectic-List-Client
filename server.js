@@ -1,5 +1,4 @@
 // server.js
-require('newrelic');
 
 const express = require('express');
 const path = require('path');
@@ -16,8 +15,8 @@ app.use(history({
 }));
 app.use(staticFileMiddleware);
 
-app.get('/', function (req, res) {
-    res.render(path.join(`${__dirname}/dist/index.html`));
+app.get('/', (req, res) => {
+  res.render(path.join(`${__dirname}/dist/index.html`));
 });
 
 const port = process.env.PORT || 5000;

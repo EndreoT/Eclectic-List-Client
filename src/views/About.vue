@@ -6,8 +6,8 @@
 
       <p class="text-left">
         Eclectic List is a
-        <strong>concept</strong> full stack web application for creating posts for selling items that can include images,
-        comment on user posts, and choose profile avatar images.
+        <strong>concept</strong> full stack web application that lets users create posts to sell items that can include images,
+        comment on other posts, and choose profile avatar images.
         This website draws inspiration from sites as
         <a
           href="https://seattle.craigslist.org/"
@@ -25,7 +25,7 @@
 
       <h2>Technical Points</h2>
       <p class="text-left">
-        This app uses the MEVN stack, which stands for
+        This app implements the MEVN stack, which stands for
         <a
           href="https://www.mongodb.com/"
           target="_blank"
@@ -37,7 +37,7 @@
           href="https://nodejs.org/en/"
           target="_blank"
         >Node.js</a> for the run-time environment.
-        Securely access protected routes using a 
+        Securely access protected routes using a
         <a
           href="https://jwt.io/"
           target="_blank"
@@ -62,8 +62,9 @@
         <a
           href="https://eclectic-list-server.herokuapp.com/api/posts"
           target="_blank"
-        >here</a>. Second, the Vue.js app is also served by an Express.js server on Heroku.
-
+        >here</a>
+        . Second, the Vue.js app is also served by an Express.js server on Heroku.
+      </p>
       <h2>Bio for Tristan Endreo</h2>
       <p class="text-left">
         Full stack and backend software developer looking forward to building scalable software that helps improve the lives of people.
@@ -77,30 +78,50 @@
         skills, rock climbing, running, and spending time with friends.
       </p>
 
-      <div class="card bg-light mb-3 border-secondary">
-        <div class="card-body">
-          <h5 class="card-title text-center">Contact information</h5>
-          <div class="text-left">
-            <p class="card-text">Tristan Endreo</p>
-            <p class="card-text">endreotm@gmail.com</p>
-            <p class="card-text">
+      <!-- Contact Section -->
+      <section class="page-section" id="contact">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+              <h2 class="mt-0">Let's Get In Touch</h2>
+              <hr class="divider my-4">
+              <p class="text-muted mb-5">Contact Tristan</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-2 ml-auto text-center mb-5 mb-lg-0">
+              <svg class="fas fa-phone fa-3x mb-3 text-muted"></svg>
+              <div>+1 (206) 962-0600</div>
+            </div>
+            <div class="col-lg-2 mr-auto text-center">
+              
+              <svg class="fas fa-envelope fa-3x mb-3 text-muted"></svg>
+              <!-- Make sure to change the email address in anchor text AND the link below! -->
+              <a class="d-block" href="mailto:endreotm@gmail.com">endreotm@gmail.com</a>
+            </div>
+            <div class="col-lg-2 mr-auto text-center">
+              <svg class="fab fa-github fa-3x mb-3 text-muted"></svg>
+              <a class="d-block" href="https://github.com/EndreoT" target="_blank">Github</a>
+            </div>
+            <div class="col-lg-2 mr-auto text-center">
+              <svg class="fab fa-linkedin fa-3x mb-3 text-muted"></svg>
               <a
-                href="https://drive.google.com/file/d/127uSoTOKZQej0yxdk9wYassOV76OySfx/view?usp=sharing"
+                class="d-block"
+                href="https://www.linkedin.com/in/tristan-endreo/"
+                target="_blank"
+              >LinkedIn</a>
+            </div>
+            <div class="col-lg-2 mr-auto text-center">
+              <svg class="fas fa-file fa-3x mb-3 text-muted"></svg>
+              <a
+                class="d-block"
+                href="https://docs.google.com/document/d/1x0fQuCv6e3jpvP5Hmhu54XOtMCv6_cJJfCLrqIBn6d8/edit"
                 target="_blank"
               >Resume</a>
-            </p>
-            <p class="card-text">
-              <a href="https://www.linkedin.com/in/tristan-endreo/" target="_blank">LinkedIn</a>
-            </p>
-            <p class="card-text">
-              <a href="https://endreot.github.io/Bootstrap-Portfolio/" target="_blank">Portfolio</a>
-            </p>
-            <p class="card-text">
-              <a href="https://github.com/EndreoT" target="_blank">Github</a>
-            </p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   </div>
 </template>
