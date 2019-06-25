@@ -6,7 +6,7 @@ import BootstrapVue from 'bootstrap-vue';
 // Font awesome imports
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope, faPhone, faFile } from '@fortawesome/free-solid-svg-icons';
-import {faIdCard} from '@fortawesome/free-regular-svg-icons';
+import { faIdCard } from '@fortawesome/free-regular-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 

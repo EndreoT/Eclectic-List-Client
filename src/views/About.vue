@@ -154,5 +154,3 @@
   padding-bottom: inherit;
 }
 </style>
-
-padding-bottom: inherit;

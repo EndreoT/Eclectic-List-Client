@@ -5,11 +5,9 @@
       <div class="row justify-content-md-center">
         <div class="col-sm-12">
           <h1 id="site-name">
-          <router-link id="site-name-link" to="/" href="#">Eclectic List</router-link>
-        </h1>
-
+            <router-link id="site-name-link" to="/" href="#">Eclectic List</router-link>
+          </h1>
         </div>
-        
       </div>
       <div class="row justify-content-md-center">
         <h6>(It may take up to 10 seconds to load content initially. Thank you for your patience.)</h6>
@@ -54,24 +52,15 @@
         </nav>
 
         <!-- Show drop down utility if authenticated -->
-        <div v-if="authenticated && user" id="dropdown-container" class="btn-group">
+        <div v-if="authenticated" id="dropdown-container" class="btn-group">
           <AvatarImage :user="user"></AvatarImage>
 
-          <div id="dropdown-container" class="btn-group">
-            <button
-              id="user-settings"
-              type="button"
-              class="btn btn-info justify-content-center align-self-center"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >Settings</button>
-
-            <div class="dropdown-menu">
-              <router-link to="/avatar" class="nav-link" href="#">Choose Avatar Image</router-link>
-              <div class="dropdown-divider"></div>
-              <button @click="logout" id="logout" class="btn btn-primary">Logout</button>
-            </div>
+          <div>
+            <b-dropdown id="dropdown-1" text="Settings" class="m-md-2">
+              <b-dropdown-item><router-link to="/avatar" class="nav-link" href="#">Choose Avatar Image</router-link></b-dropdown-item>
+              <b-dropdown-item><button @click="logout" id="logout" class="btn btn-primary">Logout</button></b-dropdown-item>
+              <b-dropdown-divider></b-dropdown-divider>
+            </b-dropdown>
           </div>
         </div>
       </div>
