@@ -36,6 +36,9 @@ This app uses the MEVN stack, which stands for MongoDB for the database, Express
 
 This app is hosted on two Heroku apps: First, the server side creates a RESTful API. An example of the the '/api/posts' endpoint can be found here. Second, the Vue.js app is also served by an Express.js server on Heroku. 
 
+### Future Improvements
+- [ ] Implement Typescript for Vue.js client 
+
 ### Automatic build
 Files are automatically built on Heroku using "heroku-postbuild" script
 
