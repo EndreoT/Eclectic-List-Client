@@ -13,8 +13,8 @@
 
 <script>
 export default {
-  name: "unorderedList",
-  props: ["list", "listName", "totalItems", "view"]
+  name: 'unorderedList',
+  props: ['list', 'listName', 'totalItems', 'view'],
 };
 </script>
 

@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "ResourceRetrievalError",
-  props: ["error"]
+  name: 'ResourceRetrievalError',
+  props: ['error'],
 };
 </script>

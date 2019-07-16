@@ -70,28 +70,28 @@
 </template>
 
 <script>
-import AvatarImage from "./components/AvatarImage";
+import AvatarImage from './components/AvatarImage';
 
 export default {
-  name: "app",
+  name: 'app',
   components: { AvatarImage },
   computed: {
     authenticated() {
-      return this.$store.getters["auth/authStatus"];
+      return this.$store.getters['auth/authStatus'];
     },
     username() {
-      return this.$store.getters["auth/username"];
+      return this.$store.getters['auth/username'];
     },
     user() {
-      return this.$store.getters["auth/user"];
-    }
+      return this.$store.getters['auth/user'];
+    },
   },
   methods: {
     logout() {
-      this.$store.dispatch("auth/deleteAuthState");
-      this.$router.push("/categories");
-    }
-  }
+      this.$store.dispatch('auth/deleteAuthState');
+      this.$router.push('/categories');
+    },
+  },
 };
 </script>
 

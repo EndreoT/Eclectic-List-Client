@@ -14,17 +14,11 @@
 </template>
 
 <script>
-import AvatarImage from "./AvatarImage";
+import AvatarImage from './AvatarImage';
+
 export default {
-  name: "usersItemView",
-  props: ["listItem"],
-  components: { AvatarImage }
+  name: 'usersItemView',
+  props: ['listItem'],
+  components: { AvatarImage },
 };
 </script>
-
-
-
- 
- 
- 
- 

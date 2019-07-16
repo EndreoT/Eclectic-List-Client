@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: "NumberInput",
-  props: ["field", "formData"]
+  name: 'NumberInput',
+  props: ['field', 'formData'],
 };
 </script>

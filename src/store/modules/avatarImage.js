@@ -3,16 +3,12 @@
 const state = {
   currentAvatarImage: '',
   selectedAvatarImage: '',
-}
+};
 
 const getters = {
-  currentAvatarImage: (state) => {
-    return state.currentAvatarImage;
-  },
-  selectedAvatarImage: (state) => {
-    return state.selectedAvatarImage;
-  },
-}
+  currentAvatarImage: state => state.currentAvatarImage,
+  selectedAvatarImage: state => state.selectedAvatarImage,
+};
 
 const mutations = {
   updateCurrentAvatarImage(state, payload) {
@@ -20,8 +16,8 @@ const mutations = {
   },
   updateSelectedAvatarImage(state, payload) {
     state.selectedAvatarImage = payload.selectedAvatarImage;
-  }
-}
+  },
+};
 
 const actions = {
   updateCurrentAvatarImage({ commit }, payload) {
@@ -29,8 +25,8 @@ const actions = {
   },
   updateSelectedAvatarImage({ commit }, payload) {
     commit('updateSelectedAvatarImage', payload);
-  }
-}
+  },
+};
 
 export default {
   namespaced: true,
@@ -38,4 +34,4 @@ export default {
   getters,
   mutations,
   actions,
-}
+};

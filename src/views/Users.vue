@@ -14,26 +14,26 @@
 </template>
 
 <script>
-import { getUsers } from "../API/API";
-import ResourceRetrievalError from "../components/ResourceRetrievalError";
-import UsersItemView from "../components/UsersItemView";
-import UnorderedList from "../components/UnorderedList";
-import PageTitle from "../components/PageTitle";
+import { getUsers } from '../API/API';
+import ResourceRetrievalError from '../components/ResourceRetrievalError';
+import UsersItemView from '../components/UsersItemView';
+import UnorderedList from '../components/UnorderedList';
+import PageTitle from '../components/PageTitle';
 
 export default {
-  name: "users",
+  name: 'users',
   components: { PageTitle, ResourceRetrievalError, UnorderedList },
   data: () => ({
     users: [],
-    pageTitle: "All Users",
-    listName: "users",
+    pageTitle: 'All Users',
+    listName: 'users',
     view: UsersItemView,
-    error: ""
+    error: '',
   }),
   computed: {
     totalUsers() {
       return this.users.length;
-    }
+    },
   },
   async mounted() {
     try {
@@ -46,6 +46,6 @@ export default {
     } catch (error) {
       console.log(error);
     }
-  }
+  },
 };
 </script>

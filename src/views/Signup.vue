@@ -61,17 +61,17 @@
 </template>
 
 <script>
-import {signup} from '../API/API'
+import { signup } from '../API/API';
 
 export default {
-  name: "about",
+  name: 'about',
   data: () => ({
-    error: "",
+    error: '',
     data: {
-      username: "",
-      email: "",
-      password: ""
-    }
+      username: '',
+      email: '',
+      password: '',
+    },
   }),
   methods: {
     async registerUser() {
@@ -79,12 +79,12 @@ export default {
         const response = await signup(this.data);
         if (response.status === 200) {
           // User creation success
-          const user = response.data.user;
-          this.$store.dispatch("auth/createAuthState", {
-            user: user,
+          const { user } = response.data;
+          this.$store.dispatch('auth/createAuthState', {
+            user,
             username: user.username,
             id: user._id,
-            jwt: response.data.token
+            jwt: response.data.token,
           });
           this.$router.push(`/user/${user.username}`);
         } else {
@@ -92,11 +92,11 @@ export default {
           // this.error = response.data.message;
         }
       } catch (error) {
-        this.$store.dispatch("auth/deleteAuthState");
+        this.$store.dispatch('auth/deleteAuthState');
         console.log(error);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

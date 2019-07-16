@@ -20,23 +20,20 @@
         :to="`/categories/${listItem.category.category}`"
       >{{capitalizeFirstLetter(listItem.category.category)}}</router-link>
     </label>
-    
+
   </div>
 </template>
 
 <script>
-import capitalizeFirstLetter from "../API/utils";
+import capitalizeFirstLetter from '../API/utils';
 
 export default {
-  name: "categoryItemView",
-  props: ["listItem"],
+  name: 'categoryItemView',
+  props: ['listItem'],
   methods: {
     capitalizeFirstLetter(string) {
       return capitalizeFirstLetter(string);
-    }
-  }
+    },
+  },
 };
 </script>
-
-
-

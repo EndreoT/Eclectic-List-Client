@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: "userPostsView",
-  props: ["listItem"]
+  name: 'userPostsView',
+  props: ['listItem'],
 };
 </script>

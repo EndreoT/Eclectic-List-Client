@@ -42,7 +42,7 @@
         </div>
 
         <!-- Show currently attached images for post -->
-        <div class="row">       
+        <div class="row">
           <ImageInLineView
             :view="view"
             :list="formData.images"
@@ -61,48 +61,48 @@
 </template>
 
 <script>
-import NumberInput from "../components/NumberInput";
-import SelectList from "../components/SelectList";
-import TextInput from "../components/TextInput";
-import PostImagesForCreatePost from "../components/PostImagesForCreatePost";
-import ImageInLineView from "../components/ImageInLineView";
-import schema from "../schema/schema";
+import NumberInput from '../components/NumberInput';
+import SelectList from '../components/SelectList';
+import TextInput from '../components/TextInput';
+import PostImagesForCreatePost from '../components/PostImagesForCreatePost';
+import ImageInLineView from '../components/ImageInLineView';
+import schema from '../schema/schema';
 
 import getPost, {
   createPost,
   getCategories,
-  uploadImagesForPost
-} from "../API/API";
+  uploadImagesForPost,
+} from '../API/API';
 
 export default {
-  name: "createPost",
+  name: 'createPost',
   components: {
     NumberInput,
     SelectList,
     TextInput,
     ImageInLineView,
-    PostImagesForCreatePost
+    PostImagesForCreatePost,
   },
   data: () => ({
     initData: {
-      error: "",
-      postUrl: ""
+      error: '',
+      postUrl: '',
     },
     formData: {
       categories: [],
-      userId: "",
-      subject: "",
-      description: "",
-      category: "",
+      userId: '',
+      subject: '',
+      description: '',
+      category: '',
       price: 0,
-      images: []
+      images: [],
     },
-    schema: schema,
-    listName: "Post Images",
-    view: PostImagesForCreatePost
+    schema,
+    listName: 'Post Images',
+    view: PostImagesForCreatePost,
   }),
   created() {
-    this.formData.userId = this.$store.getters["auth/userId"];
+    this.formData.userId = this.$store.getters['auth/userId'];
     this.initData.postUrl = this.$route.params.post;
   },
   async mounted() {
@@ -111,7 +111,7 @@ export default {
   computed: {
     numPostImages() {
       return this.formData.images.length;
-    }
+    },
   },
   methods: {
     async getCategories() {
@@ -143,7 +143,7 @@ export default {
           subject: this.formData.subject,
           description: this.formData.description,
           category: this.formData.category,
-          price: this.formData.price
+          price: this.formData.price,
         };
         const newPost = await createPost(body);
 
@@ -155,8 +155,8 @@ export default {
       } catch (error) {
         console.log(error);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

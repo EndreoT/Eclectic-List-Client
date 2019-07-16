@@ -1,5 +1,5 @@
 import axios from 'axios';
-import store from '../store/index'
+import store from '../store/index';
 
 // Base URLs choices
 const localDevelopmentUrl = 'http://localhost:4000/';
@@ -48,10 +48,10 @@ const LOGIN_API_URL = 'api/auth/login';
 function add_JWT_To_Response() {
   const token = store.getters['auth/jwt'];
   return {
-    'Authorization': 'Bearer ' + token,
+    Authorization: `Bearer ${token}`,
     'content-type': 'application/json',
-  }
-};
+  };
+}
 
 // Main api call function using Axios
 async function getResourceAxios(url) {
@@ -63,7 +63,7 @@ async function getResourceAxios(url) {
     // Response.status not in [200, 299]
     return error.response;
   }
-};
+}
 
 // Get single post by id
 export default async function getPost(postId) {
@@ -73,7 +73,7 @@ export default async function getPost(postId) {
     console.log(error);
     return error;
   }
-};
+}
 
 // Get all posts
 export async function getAllPosts() {
@@ -82,7 +82,7 @@ export async function getAllPosts() {
   } catch (error) {
     return new Error('Unable to retrieve all posts.');
   }
-};
+}
 
 // Get all posts by a user
 export async function getPostsByUser(userName) {
@@ -100,7 +100,6 @@ export async function getPostsForCategory(category) {
   } catch (error) {
     return new Error('Unable to retrieve posts.');
   }
-
 }
 
 // Create post
@@ -112,14 +111,14 @@ export async function createPost(body) {
         url: CREATE_POST_API_URL,
         data: body,
         headers: add_JWT_To_Response(),
-      }
+      },
     );
     return response.data;
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return error;
   }
-};
+}
 
 // Edit post
 export async function editPost(body, postId) {
@@ -130,14 +129,14 @@ export async function editPost(body, postId) {
         url: EDIT_POST_API_URL + postId,
         data: body,
         headers: add_JWT_To_Response(),
-      }
+      },
     );
     return response.data;
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return error;
   }
-};
+}
 
 // Delete post
 export async function deletePost(postId) {
@@ -147,14 +146,14 @@ export async function deletePost(postId) {
         method: 'DELETE',
         url: DELETE_POST_API + postId,
         headers: add_JWT_To_Response(),
-      }
+      },
     );
     return response.data;
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return error;
   }
-};
+}
 
 // Get all categories
 export async function getCategories() {
@@ -165,7 +164,7 @@ export async function getCategories() {
     console.log('getCategories', error);
     return error;
   }
-};
+}
 
 // Get singular category
 export async function getCategory(categoryName) {
@@ -175,7 +174,6 @@ export async function getCategory(categoryName) {
   } catch (error) {
     return error;
   }
-
 }
 
 // Upload single image
@@ -186,9 +184,8 @@ export async function uploadSingleImage(image) {
     const response = await axiosInstance({
       url: UPLOAD_IMAGE_API,
       data: formData,
-    }
-    );
-    const status = response.status;
+    });
+    const { status } = response;
     const returnObj = { status };
     if (status === 200) {
       return Object.assign(returnObj, { resource: response });
@@ -204,16 +201,16 @@ export async function getUser(username) {
   try {
     return await getResourceAxios(GET_USER_API + username);
   } catch (error) {
-    console.log(error); //TODO change this
+    console.log(error); // TODO change this
     return error;
   }
-};
+}
 
 // get all users
 export async function getUsers() {
   const res = await getResourceAxios(GET_USERS_API);
   return res;
-};
+}
 
 // Get all avatar images
 export async function getAllAvatarImages() {
@@ -268,9 +265,8 @@ export async function uploadImagesForPost(images, postId) {
       method: 'POST',
       url,
       data: formData,
-    }
-    );
-    const status = response.status;
+    });
+    const { status } = response;
     const returnObj = { status };
     if (status === 200) {
       return Object.assign(returnObj, { resource: response });
@@ -279,7 +275,6 @@ export async function uploadImagesForPost(images, postId) {
   } catch (error) {
     return error;
   }
-
 }
 
 // Get all comments for a post
@@ -290,7 +285,7 @@ export async function getCommentsForPost(postId) {
     console.log(error);
     return error;
   }
-};
+}
 
 // Create a comment for a post
 export async function createComment(body) {
@@ -301,7 +296,7 @@ export async function createComment(body) {
         url: CREATE_COMMENT_API,
         data: body,
         headers: add_JWT_To_Response(),
-      }
+      },
     );
     return response.data;
   } catch (error) {
@@ -317,8 +312,8 @@ export async function signup(body) {
         method: 'POST',
         url: SIGNUP_API_URL,
         data: body,
-      }
-    )
+      },
+    );
     return response;
   } catch (error) {
     return error;
@@ -333,8 +328,8 @@ export async function login(body) {
         method: 'POST',
         url: LOGIN_API_URL,
         data: body,
-      }
-    )
+      },
+    );
     return response;
   } catch (error) {
     return error;

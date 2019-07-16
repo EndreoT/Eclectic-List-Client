@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: "imageListView",
-  props: ["listItem"]
+  name: 'imageListView',
+  props: ['listItem'],
 };
 </script>

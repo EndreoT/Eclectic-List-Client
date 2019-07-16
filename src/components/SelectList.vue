@@ -16,7 +16,7 @@
 <script>
 
 export default {
-  name: "SelectList",
-  props: ["field", "formData"]
+  name: 'SelectList',
+  props: ['field', 'formData'],
 };
 </script>

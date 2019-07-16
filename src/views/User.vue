@@ -8,23 +8,23 @@
 </template>
 
 <script>
-import { getUser, getPostsByUser } from "../API/API";
+import { getUser, getPostsByUser } from '../API/API';
 
-import ResourceRetrievalError from "../components/ResourceRetrievalError";
-import UserPostsView from "../components/UserPostsView";
-import UnorderedList from "../components/UnorderedList";
-import PageTitle from "../components/PageTitle";
+import ResourceRetrievalError from '../components/ResourceRetrievalError';
+import UserPostsView from '../components/UserPostsView';
+import UnorderedList from '../components/UnorderedList';
+import PageTitle from '../components/PageTitle';
 
 export default {
-  name: "user",
+  name: 'user',
   components: { PageTitle, UnorderedList },
   data: () => ({
     posts: [],
-    user: "",
-    pageTitle: "",
-    listName: "posts",
+    user: '',
+    pageTitle: '',
+    listName: 'posts',
     view: UserPostsView,
-    error: ""
+    error: '',
   }),
   computed: {
     userName() {
@@ -32,7 +32,7 @@ export default {
     },
     totalPosts() {
       return this.posts.length;
-    }
+    },
   },
   async mounted() {
     await Promise.all([this.fetchUser(), this.fetchPosts()]);
@@ -58,7 +58,7 @@ export default {
       } catch (error) {
         this.postsError = `No posts for post "${this.userName}" exist.`;
       }
-    }
-  }
+    },
+  },
 };
 </script>

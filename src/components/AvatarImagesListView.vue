@@ -13,23 +13,23 @@
 
 <script>
 export default {
-  name: "imageListView",
-  props: ["listItem"],
+  name: 'imageListView',
+  props: ['listItem'],
   methods: {
     selectAvatarImage(element, imageUrl) {
       // Visually highlights singular selected avatar image
       const activeSelectedAvatarElem = document.getElementById(
-        "active-selection"
+        'active-selection',
       );
       if (activeSelectedAvatarElem) {
-        activeSelectedAvatarElem.setAttribute("id", "");
+        activeSelectedAvatarElem.setAttribute('id', '');
       }
-      element.setAttribute("id", "active-selection");
-      this.$store.dispatch("avatarImage/updateSelectedAvatarImage", {
-        selectedAvatarImage: imageUrl
+      element.setAttribute('id', 'active-selection');
+      this.$store.dispatch('avatarImage/updateSelectedAvatarImage', {
+        selectedAvatarImage: imageUrl,
       });
-    }
-  }
+    },
+  },
 };
 </script>
 

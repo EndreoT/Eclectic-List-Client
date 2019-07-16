@@ -33,45 +33,45 @@
 </template>
 
 <script>
-import ResourceRetrievalError from "../components/ResourceRetrievalError";
-import AvatarImagesListView from "../components/AvatarImagesListView";
-import ImageInLineView from "../components/ImageInLineView";
-import PageTitle from "../components/PageTitle";
+import ResourceRetrievalError from '../components/ResourceRetrievalError';
+import AvatarImagesListView from '../components/AvatarImagesListView';
+import ImageInLineView from '../components/ImageInLineView';
+import PageTitle from '../components/PageTitle';
 
 import {
   uploadSingleImage,
   getAllAvatarImages,
   getUser,
   getImageById,
-  setAvatarImageForUser
-} from "../API/API";
+  setAvatarImageForUser,
+} from '../API/API';
 
 export default {
-  name: "avatarImages",
+  name: 'avatarImages',
   components: { PageTitle, ImageInLineView, ResourceRetrievalError },
   data: () => ({
-    user: "",
-    chosenAvatarImage: "",
-    pageTitle: "Choose your Avatar Image",
+    user: '',
+    chosenAvatarImage: '',
+    pageTitle: 'Choose your Avatar Image',
     images: [],
     numAvatarImages: 0,
-    listName: "Avatar Images",
+    listName: 'Avatar Images',
     view: AvatarImagesListView,
-    error: ""
+    error: '',
   }),
   async mounted() {
     await Promise.all([this.getAllAvatarImages(), this.getUser()]);
   },
   computed: {
     username() {
-      return this.$store.getters["auth/username"];
+      return this.$store.getters['auth/username'];
     },
     userId() {
-      return this.$store.getters["auth/userId"];
+      return this.$store.getters['auth/userId'];
     },
     currentAvatarImage() {
-      return this.$store.getters["avatarImage/selectedAvatarImage"];
-    }
+      return this.$store.getters['avatarImage/selectedAvatarImage'];
+    },
   },
   methods: {
     async getUser() {
@@ -86,16 +86,16 @@ export default {
     async setAvatarImage(imageUrl) {
       const reqBody = {};
       const avatarImageId = this.currentAvatarImage;
-      const userId = this.userId;
-      reqBody["imageId"] = avatarImageId;
-      reqBody["userId"] = userId;
+      const { userId } = this;
+      reqBody.imageId = avatarImageId;
+      reqBody.userId = userId;
       try {
         const response = await setAvatarImageForUser(reqBody);
         if (response.data) {
           // Avatar image successfully chosen
           this.chosenAvatarImage = response.data.image.path;
-          this.$store.dispatch("auth/setUser", {
-            user: response.data.user
+          this.$store.dispatch('auth/setUser', {
+            user: response.data.user,
           });
         }
       } catch (error) {
@@ -106,7 +106,7 @@ export default {
       const response = await getAllAvatarImages();
       this.images = response;
       this.numAvatarImages = response.length;
-    }
-  }
+    },
+  },
 };
 </script>

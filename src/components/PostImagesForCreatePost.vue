@@ -8,13 +8,13 @@
 
 <script>
 export default {
-  name: "imageListView",
-  props: ["listItem"],
+  name: 'imageListView',
+  props: ['listItem'],
   methods: {
     displayImage(image) {
       // Get image source URL
       return URL.createObjectURL(image);
-    }
-  }
+    },
+  },
 };
 </script>

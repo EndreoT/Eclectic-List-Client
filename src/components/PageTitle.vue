@@ -5,22 +5,15 @@
 </template>
 
 <script>
-import capitalizeFirstLetter from "../API/utils";
+import capitalizeFirstLetter from '../API/utils';
 
 export default {
-  name: "pageTitle",
-  props: ["pageTitle"],
+  name: 'pageTitle',
+  props: ['pageTitle'],
   methods: {
     capitalizeFirstLetter(string) {
       return capitalizeFirstLetter(string);
-    }
-  }
+    },
+  },
 };
 </script>
-
-
-
- 
- 
- 
- 

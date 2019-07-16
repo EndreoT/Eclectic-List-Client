@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: "TextInput",
-  props: ["field", "formData", "required"]
+  name: 'TextInput',
+  props: ['field', 'formData', 'required'],
 };
 </script>

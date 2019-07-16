@@ -15,26 +15,26 @@
 </template>
 
 <script>
-import { getCategories } from "../API/API";
-import ResourceRetrievalError from "../components/ResourceRetrievalError";
-import CategoriesItemView from "../components/CategoriesItemView";
-import UnorderedList from "../components/UnorderedList";
-import PageTitle from "../components/PageTitle";
+import { getCategories } from '../API/API';
+import ResourceRetrievalError from '../components/ResourceRetrievalError';
+import CategoriesItemView from '../components/CategoriesItemView';
+import UnorderedList from '../components/UnorderedList';
+import PageTitle from '../components/PageTitle';
 
 export default {
-  name: "categories",
+  name: 'categories',
   components: { PageTitle, ResourceRetrievalError, UnorderedList },
   data: () => ({
     categories: [],
-    pageTitle: "All Categories",
-    listName: "categories",
+    pageTitle: 'All Categories',
+    listName: 'categories',
     view: CategoriesItemView,
-    error: ""
+    error: '',
   }),
   computed: {
     totalCategories() {
       return this.categories.length;
-    }
+    },
   },
   mounted() {
     this.getCategories();
@@ -51,7 +51,7 @@ export default {
       } catch (error) {
         console.log(error);
       }
-    }
-  }
+    },
+  },
 };
 </script>

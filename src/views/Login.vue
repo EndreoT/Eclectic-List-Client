@@ -42,29 +42,29 @@
 </template>
 
 <script>
-import {login} from '../API/API'
+import { login } from '../API/API';
 
 export default {
-  name: "login",
+  name: 'login',
   data: () => ({
-    error: "",
+    error: '',
     data: {
-      username: "",
-      password: ""
-    }
+      username: '',
+      password: '',
+    },
   }),
   methods: {
     async login() {
       try {
-        const response = await login(this.data)
+        const response = await login(this.data);
         if (response.status === 200) {
           // Login successful
-          const user = response.data.user;
-          this.$store.dispatch("auth/createAuthState", {
-            user: user,
+          const { user } = response.data;
+          this.$store.dispatch('auth/createAuthState', {
+            user,
             username: user.username,
             id: user._id,
-            jwt: response.data.token
+            jwt: response.data.token,
           });
           this.$router.push(`/user/${user.username}`);
         } else {
@@ -72,11 +72,11 @@ export default {
           this.error = response;
         }
       } catch (error) {
-        this.$store.dispatch("auth/deleteAuthState");
+        this.$store.dispatch('auth/deleteAuthState');
         console.log(error);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

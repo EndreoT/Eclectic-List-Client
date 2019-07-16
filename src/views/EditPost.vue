@@ -25,44 +25,44 @@
 </template>
 
 <script>
-import ResourceRetrievalError from "../components/ResourceRetrievalError";
-import NumberInput from "../components/NumberInput";
-import SelectList from "../components/SelectList";
-import TextInput from "../components/TextInput";
-import schema from "../schema/schema";
-import PageTitle from "../components/PageTitle";
+import ResourceRetrievalError from '../components/ResourceRetrievalError';
+import NumberInput from '../components/NumberInput';
+import SelectList from '../components/SelectList';
+import TextInput from '../components/TextInput';
+import schema from '../schema/schema';
+import PageTitle from '../components/PageTitle';
 
-import getPost, { editPost, getCategories } from "../API/API";
+import getPost, { editPost, getCategories } from '../API/API';
 
 export default {
-  name: "editPost",
+  name: 'editPost',
   components: {
     ResourceRetrievalError,
     NumberInput,
     SelectList,
     TextInput,
-    PageTitle
+    PageTitle,
   },
   data: () => ({
-    pageTitle: "Edit Post",
+    pageTitle: 'Edit Post',
     formData: {
       categories: [],
-      userId: "",
-      subject: "",
-      description: "",
-      category: "",
-      price: 0
+      userId: '',
+      subject: '',
+      description: '',
+      category: '',
+      price: 0,
     },
-    schema: schema,
-    error: ""
+    schema,
+    error: '',
   }),
   created() {
-    this.formData.userId = this.$store.getters["auth/userId"];
+    this.formData.userId = this.$store.getters['auth/userId'];
   },
   computed: {
     postId() {
       return this.$route.params.post;
-    }
+    },
   },
   async mounted() {
     await Promise.all([this.getCategories(), this.getPost()]);
@@ -103,7 +103,7 @@ export default {
           subject: this.formData.subject,
           description: this.formData.description,
           category: this.formData.category,
-          price: this.formData.price
+          price: this.formData.price,
         };
         const response = await editPost(body, this.postId);
 
@@ -112,8 +112,8 @@ export default {
       } catch (error) {
         console.log(error);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

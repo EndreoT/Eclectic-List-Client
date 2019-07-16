@@ -10,26 +10,26 @@
 </template>
 
 <script>
-import { getAllPosts } from "../API/API";
-import PostsItemView from "../components/PostsItemView";
-import UnorderedList from "../components/UnorderedList";
-import ResourceRetrievalError from "../components/ResourceRetrievalError";
-import PageTitle from "../components/PageTitle";
+import { getAllPosts } from '../API/API';
+import PostsItemView from '../components/PostsItemView';
+import UnorderedList from '../components/UnorderedList';
+import ResourceRetrievalError from '../components/ResourceRetrievalError';
+import PageTitle from '../components/PageTitle';
 
 export default {
-  name: "posts",
+  name: 'posts',
   components: { PageTitle, ResourceRetrievalError, UnorderedList },
   data: () => ({
     posts: [],
-    pageTitle: "All Posts",
-    listName: "posts",
+    pageTitle: 'All Posts',
+    listName: 'posts',
     view: PostsItemView,
-    error: ""
+    error: '',
   }),
   computed: {
     totalPosts() {
       return this.posts.length;
-    }
+    },
   },
   async mounted() {
     try {
@@ -42,6 +42,6 @@ export default {
     } catch (error) {
       console.log(error);
     }
-  }
+  },
 };
 </script>
