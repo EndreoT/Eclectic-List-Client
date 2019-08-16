@@ -1,25 +1,39 @@
 <template>
-  <div class="container" id="page-content">
-    <PageTitle :pageTitle="pageTitle"></PageTitle>
+  <div
+    id="page-content"
+    class="container"
+  >
+    <PageTitle :page-title="pageTitle" />
 
-    <div class="container" id="content">
+    <div
+      id="content"
+      class="container"
+    >
       <div v-if="!error">
         <!-- Edit post form -->
         <form @submit.prevent="editPost">
           <component
+            :is="field.fieldType"
             v-for="(field, index) in schema"
             :key="index"
-            :is="field.fieldType"
             v-model="formData[field.name]"
             :field="field"
-            :formData="formData"
+            :form-data="formData"
             :required="true"
-          ></component>
+          />
 
-          <button type="submit" class="btn btn-primary btn-override">Edit Post</button>
+          <button
+            type="submit"
+            class="btn btn-primary btn-override"
+          >
+            Edit Post
+          </button>
         </form>
       </div>
-      <ResourceRetrievalError v-if="error" :error="error"></ResourceRetrievalError>
+      <ResourceRetrievalError
+        v-if="error"
+        :error="error"
+      />
     </div>
   </div>
 </template>
@@ -35,7 +49,7 @@ import PageTitle from '../components/PageTitle';
 import getPost, { editPost, getCategories } from '../API/API';
 
 export default {
-  name: 'editPost',
+  name: 'EditPost',
   components: {
     ResourceRetrievalError,
     NumberInput,
@@ -56,13 +70,13 @@ export default {
     schema,
     error: '',
   }),
-  created() {
-    this.formData.userId = this.$store.getters['auth/userId'];
-  },
   computed: {
     postId() {
       return this.$route.params.post;
     },
+  },
+  created() {
+    this.formData.userId = this.$store.getters['auth/userId'];
   },
   async mounted() {
     await Promise.all([this.getCategories(), this.getPost()]);

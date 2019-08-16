@@ -1,11 +1,22 @@
 <template>
-  <div class="container" id="page-content">
-    <PageTitle :pageTitle="pageTitle"></PageTitle>
+  <div
+    id="page-content"
+    class="container"
+  >
+    <PageTitle :page-title="pageTitle" />
 
     <!-- All posts list -->
-    <UnorderedList :view="view" :list="posts" :listName="listName" :totalItems="totalPosts"></UnorderedList>
+    <UnorderedList
+      :view="view"
+      :list="posts"
+      :list-name="listName"
+      :total-items="totalPosts"
+    />
 
-    <ResourceRetrievalError v-if="error" :error="error"></ResourceRetrievalError>
+    <ResourceRetrievalError
+      v-if="error"
+      :error="error"
+    />
   </div>
 </template>
 
@@ -17,7 +28,7 @@ import ResourceRetrievalError from '../components/ResourceRetrievalError';
 import PageTitle from '../components/PageTitle';
 
 export default {
-  name: 'posts',
+  name: 'Posts',
   components: { PageTitle, ResourceRetrievalError, UnorderedList },
   data: () => ({
     posts: [],

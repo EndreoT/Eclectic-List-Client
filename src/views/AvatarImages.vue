@@ -1,11 +1,17 @@
 <template>
-  <div class="container" id="page-content">
-    <PageTitle :pageTitle="pageTitle"></PageTitle>
+  <div
+    id="page-content"
+    class="container"
+  >
+    <PageTitle :page-title="pageTitle" />
 
     <h3>Current avatar image:</h3>
 
     <!-- Current avatar image -->
-    <div class="container" id="content">
+    <div
+      id="content"
+      class="container"
+    >
       <img
         v-if="user"
         id="current-avatar-image"
@@ -16,15 +22,20 @@
 
       <!-- Display available avatar images to be selected-->
       <ImageInLineView
+        v-model="chosenAvatarImage"
         :view="view"
         :list="images"
-        :listName="listName"
-        :totalItems="numAvatarImages"
-        v-model="chosenAvatarImage"
-      ></ImageInLineView>
+        :list-name="listName"
+        :total-items="numAvatarImages"
+      />
 
       <form @submit.prevent="setAvatarImage">
-        <button type="submit" class="btn btn-primary btn-override">Submit</button>
+        <button
+          type="submit"
+          class="btn btn-primary btn-override"
+        >
+          Submit
+        </button>
       </form>
     </div>
 
@@ -47,7 +58,7 @@ import {
 } from '../API/API';
 
 export default {
-  name: 'avatarImages',
+  name: 'AvatarImages',
   components: { PageTitle, ImageInLineView, ResourceRetrievalError },
   data: () => ({
     user: '',
@@ -59,9 +70,6 @@ export default {
     view: AvatarImagesListView,
     error: '',
   }),
-  async mounted() {
-    await Promise.all([this.getAllAvatarImages(), this.getUser()]);
-  },
   computed: {
     username() {
       return this.$store.getters['auth/username'];
@@ -72,6 +80,9 @@ export default {
     currentAvatarImage() {
       return this.$store.getters['avatarImage/selectedAvatarImage'];
     },
+  },
+  async mounted() {
+    await Promise.all([this.getAllAvatarImages(), this.getUser()]);
   },
   methods: {
     async getUser() {

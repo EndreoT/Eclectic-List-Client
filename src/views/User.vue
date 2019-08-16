@@ -1,9 +1,17 @@
 <template>
-  <div class="container" id="page-content">
-    <PageTitle :pageTitle="pageTitle"></PageTitle>
+  <div
+    id="page-content"
+    class="container"
+  >
+    <PageTitle :page-title="pageTitle" />
 
     <!-- Posts created by user -->
-    <UnorderedList :view="view" :list="posts" :listName="listName" :totalItems="totalPosts"></UnorderedList>
+    <UnorderedList
+      :view="view"
+      :list="posts"
+      :list-name="listName"
+      :total-items="totalPosts"
+    />
   </div>
 </template>
 
@@ -16,7 +24,7 @@ import UnorderedList from '../components/UnorderedList';
 import PageTitle from '../components/PageTitle';
 
 export default {
-  name: 'user',
+  name: 'User',
   components: { PageTitle, UnorderedList },
   data: () => ({
     posts: [],

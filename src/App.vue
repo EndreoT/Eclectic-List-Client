@@ -1,11 +1,20 @@
 <template>
   <div id="app">
     <!-- Site Header -->
-    <header class="container-fluid" id="header">
+    <header
+      id="header"
+      class="container-fluid"
+    >
       <div class="row justify-content-md-center">
         <div class="col-sm-12">
           <h1 id="site-name">
-            <router-link id="site-name-link" to="/" href="#">Eclectic List</router-link>
+            <router-link
+              id="site-name-link"
+              to="/"
+              href="#"
+            >
+              Eclectic List
+            </router-link>
           </h1>
         </div>
       </div>
@@ -14,58 +23,148 @@
       </div>
 
       <!-- Navigation -->
-      <div class="row justify-content-md-center" id="navigation">
+      <div
+        id="navigation"
+        class="row justify-content-md-center"
+      >
         <nav class="navbar bg-light">
           <ul class="nav">
             <li class="nav-item">
-              <router-link to="/about" class="nav-link" href="#">About</router-link>
+              <router-link
+                to="/about"
+                class="nav-link"
+                href="#"
+              >
+                About
+              </router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/categories" class="nav-link" href="#">Categories</router-link>
+              <router-link
+                to="/categories"
+                class="nav-link"
+                href="#"
+              >
+                Categories
+              </router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/posts" class="nav-link" href="#">Posts</router-link>
+              <router-link
+                to="/posts"
+                class="nav-link"
+                href="#"
+              >
+                Posts
+              </router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/users" class="nav-link" href="#">Users</router-link>
+              <router-link
+                to="/users"
+                class="nav-link"
+                href="#"
+              >
+                Users
+              </router-link>
             </li>
 
             <!-- Show links if not authenticated -->
-            <li v-if="!authenticated" class="nav-item">
-              <router-link to="/login" class="nav-link" href="#">Login</router-link>
+            <li
+              v-if="!authenticated"
+              class="nav-item"
+            >
+              <router-link
+                to="/login"
+                class="nav-link"
+                href="#"
+              >
+                Login
+              </router-link>
             </li>
-            <li v-if="!authenticated" class="nav-item">
-              <router-link to="/signup" class="nav-link" href="#">Signup</router-link>
+            <li
+              v-if="!authenticated"
+              class="nav-item"
+            >
+              <router-link
+                to="/signup"
+                class="nav-link"
+                href="#"
+              >
+                Signup
+              </router-link>
             </li>
 
             <!-- Show links if authenticated -->
-            <li v-if="authenticated" class="nav-item">
-              <router-link to="/createpost" class="nav-link" href="#">Create Post</router-link>
+            <li
+              v-if="authenticated"
+              class="nav-item"
+            >
+              <router-link
+                to="/createpost"
+                class="nav-link"
+                href="#"
+              >
+                Create Post
+              </router-link>
             </li>
-            <li v-if="authenticated" class="nav-item">
-              <router-link to="/user" class="nav-link" href="#">Profile</router-link>
+            <li
+              v-if="authenticated"
+              class="nav-item"
+            >
+              <router-link
+                to="/user"
+                class="nav-link"
+                href="#"
+              >
+                Profile
+              </router-link>
             </li>
-            <li v-if="authenticated" class="nav-item">
-              <label class="nav-link">Logged in as: {{username}}</label>
+            <li
+              v-if="authenticated"
+              class="nav-item"
+            >
+              <label class="nav-link">Logged in as: {{ username }}</label>
             </li>
           </ul>
         </nav>
 
         <!-- Show drop down utility if authenticated -->
-        <div v-if="authenticated" id="dropdown-container" class="btn-group">
-          <AvatarImage :user="user"></AvatarImage>
+        <div
+          v-if="authenticated"
+          id="dropdown-container"
+          class="btn-group"
+        >
+          <AvatarImage :user="user" />
 
           <div>
-            <b-dropdown id="dropdown-1" text="Settings" class="m-md-2">
-              <b-dropdown-item><router-link to="/avatar" class="nav-link" href="#">Choose Avatar Image</router-link></b-dropdown-item>
-              <b-dropdown-item><button @click="logout" id="logout" class="btn btn-primary">Logout</button></b-dropdown-item>
-              <b-dropdown-divider></b-dropdown-divider>
+            <b-dropdown
+              id="dropdown-1"
+              text="Settings"
+              class="m-md-2"
+            >
+              <b-dropdown-item>
+                <router-link
+                  to="/avatar"
+                  class="nav-link"
+                  href="#"
+                >
+                  Choose Avatar Image
+                </router-link>
+              </b-dropdown-item>
+              <b-dropdown-item>
+                <button
+                  id="logout"
+                  class="btn btn-primary"
+                  @click="logout"
+                >
+                  Logout
+                </button>
+              </b-dropdown-item>
+              <b-dropdown-divider />
             </b-dropdown>
           </div>
         </div>
       </div>
     </header>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -73,7 +172,7 @@
 import AvatarImage from './components/AvatarImage';
 
 export default {
-  name: 'app',
+  name: 'App',
   components: { AvatarImage },
   computed: {
     authenticated() {

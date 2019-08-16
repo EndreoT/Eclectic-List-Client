@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1 id="page-title">{{capitalizeFirstLetter(pageTitle)}}</h1>
+    <h1 id="page-title">
+      {{ capitalizeFirstLetter(pageTitle) }}
+    </h1>
   </div>
 </template>
 
@@ -8,7 +10,7 @@
 import capitalizeFirstLetter from '../API/utils';
 
 export default {
-  name: 'pageTitle',
+  name: 'PageTitle',
   props: ['pageTitle'],
   methods: {
     capitalizeFirstLetter(string) {

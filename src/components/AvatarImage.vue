@@ -1,12 +1,15 @@
 <template>
   <div>
-    <img class="avatar-image" :src="user['avatar_image'].path">
+    <img
+      class="avatar-image"
+      :src="user['avatar_image'].path"
+    >
   </div>
 </template>
 
 <script>
 export default {
-  name: 'avatarImage',
+  name: 'AvatarImage',
   props: ['user'],
 };
 </script>

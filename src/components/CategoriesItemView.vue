@@ -1,9 +1,9 @@
 <template>
   <div>
     <router-link :to="`/categories/${listItem['category']}`">
-      <h2>{{capitalizeFirstLetter(listItem["category"])}}</h2>
+      <h2>{{ capitalizeFirstLetter(listItem["category"]) }}</h2>
     </router-link>
-    <p>Number of Posts: {{listItem["number_of_posts"]}}</p>
+    <p>Number of Posts: {{ listItem["number_of_posts"] }}</p>
   </div>
 </template>
 
@@ -11,7 +11,7 @@
 import capitalizeFirstLetter from '../API/utils';
 
 export default {
-  name: 'categoryItemView',
+  name: 'CategoryItemView',
   props: ['listItem'],
   methods: {
     capitalizeFirstLetter(string) {

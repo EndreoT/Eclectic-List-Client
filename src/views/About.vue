@@ -1,7 +1,15 @@
 <template>
-  <div class="container" id="page-content">
-    <h1 id="page-title">About</h1>
-    <div class="container" id="content">
+  <div
+    id="page-content"
+    class="container"
+  >
+    <h1 id="page-title">
+      About
+    </h1>
+    <div
+      id="content"
+      class="container"
+    >
       <h2>Description</h2>
 
       <p class="text-left">
@@ -13,7 +21,10 @@
           href="https://seattle.craigslist.org/"
           target="_blank"
         >Craigslist</a> and
-        <a href="https://www.reddit.com/" target="_blank">Reddit</a>.
+        <a
+          href="https://www.reddit.com/"
+          target="_blank"
+        >Reddit</a>.
       </p>
 
       <h2>Technical Points</h2>
@@ -23,8 +34,14 @@
           href="https://www.mongodb.com/"
           target="_blank"
         >MongoDB</a> for the database,
-        <a href="https://expressjs.com/" target="_blank">Express.js</a> for the web server framework,
-        <a href="https://vuejs.org/" target="_blank">Vue.js</a> for the frontend framework,
+        <a
+          href="https://expressjs.com/"
+          target="_blank"
+        >Express.js</a> for the web server framework,
+        <a
+          href="https://vuejs.org/"
+          target="_blank"
+        >Vue.js</a> for the frontend framework,
         and
         <a
           href="https://nodejs.org/en/"
@@ -40,7 +57,10 @@
           target="_blank"
         >Passport.js</a> middleware.
         The
-        <a href="https://vuex.vuejs.org/" target="_blank">Vuex</a> library for Vue allows for persistent user login.
+        <a
+          href="https://vuex.vuejs.org/"
+          target="_blank"
+        >Vuex</a> library for Vue allows for persistent user login.
         Lastly, images are stored using
         <a
           href="https://cloudinary.com/"
@@ -50,7 +70,10 @@
 
       <p class="text-left">
         This app is hosted on two
-        <a href="https://www.heroku.com/" target="_blank">Heroku</a> apps:
+        <a
+          href="https://www.heroku.com/"
+          target="_blank"
+        >Heroku</a> apps:
         First, the server side creates a RESTful API. An example of the the '/api/posts' endpoint can be found
         <a
           href="https://eclectic-list-server.herokuapp.com/api/posts"
@@ -87,13 +110,20 @@
       </p>
 
       <!-- Contact Section -->
-      <section class="page-section" id="contact">
+      <section
+        id="contact"
+        class="page-section"
+      >
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
-              <h2 class="mt-0">Let's Get In Touch</h2>
-              <hr class="divider my-4" />
-              <p class="text-muted mb-5">Contact Tristan</p>
+              <h2 class="mt-0">
+                Let's Get In Touch
+              </h2>
+              <hr class="divider my-4">
+              <p class="text-muted mb-5">
+                Contact Tristan
+              </p>
             </div>
           </div>
           <div class="row">
@@ -104,11 +134,18 @@
             <div class="col-lg-2 mr-auto text-center">
               <svg class="fas fa-envelope fa-3x mb-3 text-muted" />
               <!-- Make sure to change the email address in anchor text AND the link below! -->
-              <a class="d-block" href="mailto:endreotm@gmail.com">endreotm@gmail.com</a>
+              <a
+                class="d-block"
+                href="mailto:endreotm@gmail.com"
+              >endreotm@gmail.com</a>
             </div>
             <div class="col-lg-2 mr-auto text-center">
               <svg class="fab fa-github fa-3x mb-3 text-muted" />
-              <a class="d-block" href="https://github.com/EndreoT" target="_blank">Github</a>
+              <a
+                class="d-block"
+                href="https://github.com/EndreoT"
+                target="_blank"
+              >Github</a>
             </div>
             <div class="col-lg-2 mr-auto text-center">
               <svg class="fab fa-linkedin fa-3x mb-3 text-muted" />

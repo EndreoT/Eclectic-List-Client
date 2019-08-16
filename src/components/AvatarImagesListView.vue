@@ -2,10 +2,10 @@
   <div class="col-md-auto">
     <div id>
       <img
-        v-on:click="selectAvatarImage($event.target, $event.target.attributes.db_id.value)"
         class="avatar-image"
         :src="listItem.path"
         :db_id="listItem._id"
+        @click="selectAvatarImage($event.target, $event.target.attributes.db_id.value)"
       >
     </div>
   </div>
@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'imageListView',
+  name: 'ImageListView',
   props: ['listItem'],
   methods: {
     selectAvatarImage(element, imageUrl) {

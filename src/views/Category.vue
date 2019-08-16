@@ -1,12 +1,22 @@
 <template>
-
-  <div class="container" id="page-content">
-    <PageTitle :pageTitle="pageTitle"></PageTitle>
+  <div
+    id="page-content"
+    class="container"
+  >
+    <PageTitle :page-title="pageTitle" />
 
     <!-- Show posts for category -->
-    <UnorderedList :view="view" :list="posts" :listName="listName" :totalItems="totalPosts"></UnorderedList>
+    <UnorderedList
+      :view="view"
+      :list="posts"
+      :list-name="listName"
+      :total-items="totalPosts"
+    />
 
-    <ResourceRetrievalError v-if="error" :error="error"></ResourceRetrievalError>
+    <ResourceRetrievalError
+      v-if="error"
+      :error="error"
+    />
   </div>
 </template>
 
@@ -19,7 +29,7 @@ import PageTitle from '../components/PageTitle';
 import { getCategory, getPosts, getPostsForCategory } from '../API/API';
 
 export default {
-  name: 'category',
+  name: 'Category',
   components: { PageTitle, ResourceRetrievalError, UnorderedList },
   data: () => ({
     category: '',

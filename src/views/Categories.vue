@@ -1,16 +1,22 @@
 <template>
-  <div class="container" id="page-content">
-    <PageTitle :pageTitle="pageTitle"></PageTitle>
+  <div
+    id="page-content"
+    class="container"
+  >
+    <PageTitle :page-title="pageTitle" />
 
     <!-- Show all categories -->
     <UnorderedList
       :view="view"
       :list="categories"
-      :listName="listName"
-      :totalItems="totalCategories"
-    ></UnorderedList>
+      :list-name="listName"
+      :total-items="totalCategories"
+    />
 
-    <ResourceRetrievalError v-if="error" :error="error"></ResourceRetrievalError>
+    <ResourceRetrievalError
+      v-if="error"
+      :error="error"
+    />
   </div>
 </template>
 
@@ -22,7 +28,7 @@ import UnorderedList from '../components/UnorderedList';
 import PageTitle from '../components/PageTitle';
 
 export default {
-  name: 'categories',
+  name: 'Categories',
   components: { PageTitle, ResourceRetrievalError, UnorderedList },
   data: () => ({
     categories: [],

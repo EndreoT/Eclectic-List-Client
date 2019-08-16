@@ -1,12 +1,23 @@
 <template>
   <div>
     <div v-show="list">
-      <p id="total-items">Total {{listName}}: {{totalItems}}</p>
+      <p id="total-items">
+        Total {{ listName }}: {{ totalItems }}
+      </p>
 
-      <div id="image-container" class="container">
+      <div
+        id="image-container"
+        class="container"
+      >
         <div class="row">
-          <div v-for="item in list" :key="item._id">
-            <component :is="view" :listItem="item"></component>
+          <div
+            v-for="item in list"
+            :key="item._id"
+          >
+            <component
+              :is="view"
+              :list-item="item"
+            />
           </div>
         </div>
       </div>
@@ -16,7 +27,7 @@
 
 <script>
 export default {
-  name: 'unorderedList',
+  name: 'UnorderedList',
   props: ['list', 'listName', 'totalItems', 'view'],
 };
 </script>

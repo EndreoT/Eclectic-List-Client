@@ -1,42 +1,54 @@
 <template>
-  <div class="container" id="page-content">
-    <h1 id="page-title">Create Post</h1>
-    <div class="container" id="content">
-
+  <div
+    id="page-content"
+    class="container"
+  >
+    <h1 id="page-title">
+      Create Post
+    </h1>
+    <div
+      id="content"
+      class="container"
+    >
       <!-- Create post form -->
       <form @submit.prevent="submitPost">
         <!-- Post infomation inputs (category, subject, description, price) -->
         <component
+          :is="field.fieldType"
           v-for="(field, index) in schema"
           :key="index"
-          :is="field.fieldType"
           v-model="formData[field.name]"
           :field="field"
-          :formData="formData"
+          :form-data="formData"
           :required="true"
-        ></component>
+        />
 
         <!-- Images for post -->
         <div class="row">
           <div class="col-md-6">
-
             <!-- Attach images for Post -->
             <form
-              @change="onFileChange"
               action="postImage"
               method="post"
               enctype="multipart/form-data"
+              @change="onFileChange"
             >
-              <input type="file" name="file" multiple>
+              <input
+                type="file"
+                name="file"
+                multiple
+              >
             </form>
           </div>
           <div class="col-md-6">
             <div id="form-control-buttons">
               <button
-                @click="removeImages"
                 class="btn btn-warning btn-override"
                 type="button"
-              >Remove images</button>
+                @click="removeImages"
+              >
+                Remove images
+              </button>
             </div>
           </div>
         </div>
@@ -46,16 +58,20 @@
           <ImageInLineView
             :view="view"
             :list="formData.images"
-            :listName="listName"
-            :totalItems="numPostImages"
-          ></ImageInLineView>
+            :list-name="listName"
+            :total-items="numPostImages"
+          />
         </div>
 
         <div class="row justify-content-center">
-          <button type="submit" class="btn btn-primary btn-override">Create Post</button>
+          <button
+            type="submit"
+            class="btn btn-primary btn-override"
+          >
+            Create Post
+          </button>
         </div>
       </form>
-
     </div>
   </div>
 </template>
@@ -75,7 +91,7 @@ import getPost, {
 } from '../API/API';
 
 export default {
-  name: 'createPost',
+  name: 'CreatePost',
   components: {
     NumberInput,
     SelectList,
@@ -101,17 +117,17 @@ export default {
     listName: 'Post Images',
     view: PostImagesForCreatePost,
   }),
+  computed: {
+    numPostImages() {
+      return this.formData.images.length;
+    },
+  },
   created() {
     this.formData.userId = this.$store.getters['auth/userId'];
     this.initData.postUrl = this.$route.params.post;
   },
   async mounted() {
     await this.getCategories();
-  },
-  computed: {
-    numPostImages() {
-      return this.formData.images.length;
-    },
   },
   methods: {
     async getCategories() {
@@ -145,14 +161,14 @@ export default {
           price: this.formData.price,
         };
         const newPost = await createPost(body);
- 
+
         // Upload images separately from post
-        console.log(this.formData.images.length)
+        console.log(this.formData.images.length);
 
         if (this.formData.images.length) {
           uploadImagesForPost(this.formData.images, newPost._id);
         }
-      
+
         // Redirect to created post
         this.$router.push(`/posts/${newPost._id}`);
       } catch (error) {
