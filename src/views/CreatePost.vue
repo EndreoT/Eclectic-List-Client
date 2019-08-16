@@ -147,9 +147,9 @@ export default {
         const newPost = await createPost(body);
  
         // Upload images separately from post
-        console.log(this.formData.images)
+        console.log(this.formData.images.length)
 
-        if (this.formData.images) {
+        if (this.formData.images.length) {
           uploadImagesForPost(this.formData.images, newPost._id);
         }
       

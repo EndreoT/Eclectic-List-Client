@@ -12,13 +12,13 @@
 
         <!-- Username -->
         <div class="form-group">
-          <label for="InputUsername">Username</label>
+          <label for="inputEmail">Email</label>
           <input
-            v-model="data.username"
+            v-model="data.email"
             type="text"
             class="form-control"
-            id="InputUsername"
-            placeholder="Enter your username"
+            id="inputEmail"
+            placeholder="Enter your email"
             required
           >
         </div>
@@ -49,7 +49,7 @@ export default {
   data: () => ({
     error: '',
     data: {
-      username: '',
+      email: '',
       password: '',
     },
   }),
