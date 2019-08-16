@@ -12,7 +12,7 @@
             <p>{{post.description}}</p>
           </div>
         </div>
-        <hr class="style1">
+        <hr class="style1" />
 
         <!-- Post Author -->
         <div class="row">
@@ -23,11 +23,11 @@
             </p>
           </div>
         </div>
-        <hr class="style1">
+        <hr class="style1" />
 
         <!-- Post Images -->
         <ImageInLineView :view="view" :list="images" :listName="listName" :totalItems="totalItems"></ImageInLineView>
-        <hr class="style1">
+        <hr class="style1" />
 
         <!-- Post Meta Information -->
         <div class="row">
@@ -49,7 +49,7 @@
             <p>Posted on {{post.dateCreatedFormatted}}</p>
           </div>
         </div>
-        <hr class="style1">
+        <hr class="style1" />
 
         <!-- Confirm Delete Post -->
         <div style="text-align: center">
@@ -59,48 +59,33 @@
             type="button"
             class="btn btn-primary"
           >Edit Post</button>
-          <div class="divider"/>
-          <button
-            v-if="authenticatedToAlterPost"
-            type="button"
-            class="btn btn-danger"
-            data-toggle="modal"
-            data-target="#deleteModal"
-          >Delete Post</button>
-          <div
-            class="modal fade"
-            id="deleteModal"
-            tabindex="-1"
-            role="dialog"
-            aria-labelledby="ModalLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">
-                    <strong>Confirm Delete Post</strong>
-                  </h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">Subject: {{post.subject}}</div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button
-                    @click="confirmDeletePost"
-                    type="button"
-                    data-dismiss="modal"
-                    class="btn btn-danger"
-                  >Delete Post</button>
+
+          <div class="divider" />
+          <div>
+            <b-button
+              v-if="authenticatedToAlterPost"
+              class="btn btn-danger"
+              v-b-modal.deletePostModal
+            >Delete Post</b-button>
+
+            <b-modal
+              id="deletePostModal"
+              title="Confirm Delete Post"
+              @ok="confirmDeletePost"
+              ok-variant="danger"
+              ok-title="Delete Post"
+            >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-body">Subject: {{post.subject}}</div>
                 </div>
               </div>
-            </div>
+            </b-modal>
           </div>
         </div>
-        <br>
-        <hr class="style1">
+
+        <br />
+        <hr class="style1" />
 
         <!-- Comments section-->
         <p>Number of comments: {{numberOfComments}}</p>
@@ -131,7 +116,7 @@
             class="btn btn-primary"
           >Login to post a comment</button>
         </div>
-        <br>
+        <br />
         <div v-if="comments.length" class="comments">
           <h2>Comments</h2>
           <ul class="list-group">
@@ -144,7 +129,7 @@
             >
               <div class="comment">
                 <!-- user avatar image -->
-                <img class="profile-img" :src="comment.user.avatar_image.path" alt="avatar-image">
+                <img class="profile-img" :src="comment.user.avatar_image.path" alt="avatar-image" />
 
                 <div class="content">
                   <router-link :to="`/user/${comment.user.username}`">{{comment.user.username}}</router-link>
@@ -170,48 +155,48 @@
 </template>
 
 <script>
-import TextInput from '../components/TextInput';
-import ResourceRetrievalError from '../components/ResourceRetrievalError';
-import CategoriesItemView from '../components/CategoriesItemView';
-import UnorderedList from '../components/UnorderedList';
-import ImageInLineView from '../components/ImageInLineView';
-import PostImagesForPost from '../components/PostImagesForPost';
+import TextInput from "../components/TextInput";
+import ResourceRetrievalError from "../components/ResourceRetrievalError";
+import CategoriesItemView from "../components/CategoriesItemView";
+import UnorderedList from "../components/UnorderedList";
+import ImageInLineView from "../components/ImageInLineView";
+import PostImagesForPost from "../components/PostImagesForPost";
 
 import getPost, {
   deletePost,
   retrieveResource,
   getCommentsForPost,
   getImagesForPost,
-  createComment,
-} from '../API/API';
+  createComment
+} from "../API/API";
 
 const commentSchema = {
-  fieldType: 'TextInput',
-  placeholder: 'Craft a comment',
-  label: 'Post a comment',
-  name: 'comment',
-  rows: '2',
-  cols: '100',
+  fieldType: "TextInput",
+  placeholder: "Craft a comment",
+  label: "Post a comment",
+  name: "comment",
+  rows: "2",
+  cols: "100"
 };
 
 export default {
-  name: 'post',
+  name: "post",
   components: { TextInput, ImageInLineView },
   data: () => ({
-    pageTitle: '',
-    post: '',
-    listName: 'Post Images',
+    pageTitle: "",
+    post: "",
+    listName: "Post Images",
     comments: [],
     images: [],
     view: PostImagesForPost,
-    noComments: '',
+    noComments: "",
     comment: commentSchema,
     formData: {
-      comment: '',
-      emptyComment: false,
+      comment: "",
+      emptyComment: false
     },
     numberOfComments: 0,
-    error: '',
+    error: ""
   }),
   computed: {
     postId() {
@@ -222,17 +207,17 @@ export default {
       return this.images.length;
     },
     userId() {
-      return this.$store.getters['auth/userId'];
+      return this.$store.getters["auth/userId"];
     },
     authenticatedToAlterPost() {
       return (
-        this.$store.getters['auth/authStatus']
-        && this.$store.getters['auth/username'] === this.post.user.username
+        this.$store.getters["auth/authStatus"] &&
+        this.$store.getters["auth/username"] === this.post.user.username
       );
     },
     authenticatedToPostComment() {
-      return this.$store.getters['auth/authStatus'];
-    },
+      return this.$store.getters["auth/authStatus"];
+    }
   },
   async mounted() {
     Promise.all([this.getPost(), this.getComments(), this.getImagesForPost()]);
@@ -254,7 +239,7 @@ export default {
     async getImagesForPost() {
       try {
         const response = await getImagesForPost(this.postId);
-        response.forEach((item) => {
+        response.forEach(item => {
           this.images.push(item);
         });
       } catch (error) {
@@ -268,7 +253,7 @@ export default {
           this.comments = response.data;
           this.numberOfComments = this.post.number_of_comments;
         } else {
-          this.noComments = 'No comments available.';
+          this.noComments = "No comments available.";
         }
       } catch (error) {
         console.log(error);
@@ -276,16 +261,16 @@ export default {
     },
     editPost() {
       this.$router.push(
-        `/posts/${this.post._id}/${this.post.user.username}/edit`,
+        `/posts/${this.post._id}/${this.post.user.username}/edit`
       );
     },
     redirectToLogin() {
-      this.$router.push('/login');
+      this.$router.push("/login");
     },
     async confirmDeletePost() {
       try {
         await deletePost(this.postId);
-        this.$router.push('/posts/');
+        this.$router.push("/posts/");
       } catch (error) {
         console.log(error);
       }
@@ -295,22 +280,21 @@ export default {
         this.formData.emptyComment = true;
       } else {
         const body = {
-          userId: this.userId,
           postId: this.postId,
-          comment: this.formData.comment,
+          comment: this.formData.comment
         };
         try {
-          const json = await createComment(body);
-          this.noComments = '';
-          (this.formData.comment = ''), this.comments.push(json); // How does this syntax work?
+          const postResponse = await createComment(body);
+          this.noComments = "";
+          (this.formData.comment = ""), this.comments.push(postResponse); // How does this syntax work?
           this.numberOfComments++;
           this.formData.emptyComment = false;
         } catch (error) {
           console.log(error);
         }
       }
-    },
-  },
+    }
+  }
 };
 </script>
 

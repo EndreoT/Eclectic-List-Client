@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { getUser, getPostsByUser } from '../API/API';
+import { getUserByUsername, getPostsByUser } from '../API/API';
 
 import ResourceRetrievalError from '../components/ResourceRetrievalError';
 import UserPostsView from '../components/UserPostsView';
@@ -40,7 +40,7 @@ export default {
   methods: {
     async fetchUser() {
       try {
-        const response = await getUser(this.userName);
+        const response = await getUserByUsername(this.userName);
         if (response.status === 200) {
           this.user = response.data;
           this.pageTitle = this.user.username;

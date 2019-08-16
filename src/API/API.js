@@ -14,21 +14,16 @@ const axiosInstance = axios.create({
 });
 
 // API URLs
-const GET_POST_API = 'api/posts/';
-const DELETE_POST_API = 'api/posts/delete/';
-const ALL_POSTS_API = 'api/posts';
-const POSTS_BY_USER_API_URL = 'api/posts/postsByUser/';
-const CREATE_POST_API_URL = 'api/posts/createPost/';
-const EDIT_POST_API_URL = 'api/posts/edit/';
+const POSTS_URL = 'api/posts';
+const POSTS_BY_USER_API_URL = 'api/posts/postsByUser';
 
-const CATEGORIES_API_URL = 'api/categories';
-const POSTS_FOR_CATEGORY = 'api/posts/postsByCategory/';
+const CATEGORIES_API_URL = 'api/category';
+const POSTS_FOR_CATEGORY = 'api/posts/postsByCategory';
 
-const GET_USER_API = 'users/';
-const GET_USERS_API = 'users';
+const USER_URL = 'api/users';
 
-const COMMENTS_FOR_POST_API = 'api/comments/commentsForPost/';
-const CREATE_COMMENT_API = 'api/comments/';
+const COMMENTS_FOR_POST_API = 'api/comments/commentsForPost';
+const COMMENTS_URL = 'api/comments';
 
 const UPLOAD_IMAGE_API = 'api/images/';
 const UPLOAD_IMAGES_FOR_POST = 'api/images/postMultipleImages/';
@@ -37,15 +32,15 @@ const GET_IMAGE_BY_ID = 'api/images/getImageById/';
 const GET_IMAGES_FOR_POST = 'api/images/getImagesForPost/';
 const SET_AVATAR_IMAGE_FOR_USER = 'api/images/setAvatarImage';
 
-const SIGNUP_API_URL = 'api/auth/signup';
-const LOGIN_API_URL = 'api/auth/login';
+const SIGNUP_API_URL = 'auth/signup';
+const LOGIN_API_URL = 'auth/login';
 
 // ***************************************
 // Functions to connect to API REST server
 // ***************************************
 
 // used to modify request by adding JWT to auth object
-function add_JWT_To_Response() {
+function GenerateJWTHeader() {
   const token = store.getters['auth/jwt'];
   return {
     Authorization: `Bearer ${token}`,
@@ -68,7 +63,7 @@ async function getResourceAxios(url) {
 // Get single post by id
 export default async function getPost(postId) {
   try {
-    return await getResourceAxios(GET_POST_API + postId);
+    return await getResourceAxios(`${POSTS_URL}/${postId}`);
   } catch (error) {
     console.log(error);
     return error;
@@ -78,7 +73,7 @@ export default async function getPost(postId) {
 // Get all posts
 export async function getAllPosts() {
   try {
-    return await getResourceAxios(ALL_POSTS_API);
+    return await getResourceAxios(POSTS_URL);
   } catch (error) {
     return new Error('Unable to retrieve all posts.');
   }
@@ -87,7 +82,7 @@ export async function getAllPosts() {
 // Get all posts by a user
 export async function getPostsByUser(userName) {
   try {
-    return await getResourceAxios(POSTS_BY_USER_API_URL + userName);
+    return await getResourceAxios(`${POSTS_BY_USER_API_URL}/${userName}`);
   } catch (error) {
     return new Error('Unable to retrieve all posts.');
   }
@@ -96,7 +91,7 @@ export async function getPostsByUser(userName) {
 // Get all posts for a category
 export async function getPostsForCategory(category) {
   try {
-    return await getResourceAxios(POSTS_FOR_CATEGORY + category);
+    return await getResourceAxios(`${POSTS_FOR_CATEGORY}/${category}`);
   } catch (error) {
     return new Error('Unable to retrieve posts.');
   }
@@ -108,9 +103,9 @@ export async function createPost(body) {
     const response = await axiosInstance(
       {
         method: 'POST',
-        url: CREATE_POST_API_URL,
+        url: POSTS_URL,
         data: body,
-        headers: add_JWT_To_Response(),
+        headers: GenerateJWTHeader(),
       },
     );
     return response.data;
@@ -126,9 +121,9 @@ export async function editPost(body, postId) {
     const response = await axiosInstance(
       {
         method: 'PUT',
-        url: EDIT_POST_API_URL + postId,
+        url: `${POSTS_URL}/${postId}`,
         data: body,
-        headers: add_JWT_To_Response(),
+        headers: GenerateJWTHeader(),
       },
     );
     return response.data;
@@ -144,8 +139,8 @@ export async function deletePost(postId) {
     const response = await axiosInstance(
       {
         method: 'DELETE',
-        url: DELETE_POST_API + postId,
-        headers: add_JWT_To_Response(),
+        url: `${POSTS_URL}/${postId}`,
+        headers: GenerateJWTHeader(),
       },
     );
     return response.data;
@@ -169,7 +164,7 @@ export async function getCategories() {
 // Get singular category
 export async function getCategory(categoryName) {
   try {
-    const res = await getResourceAxios(CATEGORIES_API_URL + categoryName);
+    const res = await getResourceAxios(`${CATEGORIES_API_URL}/${categoryName}`);
     return res;
   } catch (error) {
     return error;
@@ -197,9 +192,9 @@ export async function uploadSingleImage(image) {
 }
 
 // Get user by username
-export async function getUser(username) {
+export async function getUserByUsername(username) {
   try {
-    return await getResourceAxios(GET_USER_API + username);
+    return await getResourceAxios(`${USER_URL}/username/${username}`);
   } catch (error) {
     console.log(error); // TODO change this
     return error;
@@ -208,7 +203,7 @@ export async function getUser(username) {
 
 // get all users
 export async function getUsers() {
-  const res = await getResourceAxios(GET_USERS_API);
+  const res = await getResourceAxios(USER_URL);
   return res;
 }
 
@@ -280,7 +275,7 @@ export async function uploadImagesForPost(images, postId) {
 // Get all comments for a post
 export async function getCommentsForPost(postId) {
   try {
-    return await getResourceAxios(COMMENTS_FOR_POST_API + postId);
+    return await getResourceAxios(`${COMMENTS_FOR_POST_API}/${postId}`);
   } catch (error) {
     console.log(error);
     return error;
@@ -293,9 +288,9 @@ export async function createComment(body) {
     const response = await axiosInstance(
       {
         method: 'POST',
-        url: CREATE_COMMENT_API,
+        url: COMMENTS_URL,
         data: body,
-        headers: add_JWT_To_Response(),
+        headers: GenerateJWTHeader(),
       },
     );
     return response.data;

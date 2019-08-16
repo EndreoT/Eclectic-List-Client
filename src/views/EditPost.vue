@@ -99,7 +99,6 @@ export default {
     async editPost() {
       try {
         const body = {
-          userId: this.formData.userId,
           subject: this.formData.subject,
           description: this.formData.description,
           category: this.formData.category,

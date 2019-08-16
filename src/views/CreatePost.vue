@@ -139,17 +139,20 @@ export default {
     async submitPost() {
       try {
         const body = {
-          userId: this.formData.userId,
           subject: this.formData.subject,
           description: this.formData.description,
           category: this.formData.category,
           price: this.formData.price,
         };
         const newPost = await createPost(body);
-
+ 
         // Upload images separately from post
-        uploadImagesForPost(this.formData.images, newPost._id);
+        console.log(this.formData.images)
 
+        if (this.formData.images) {
+          uploadImagesForPost(this.formData.images, newPost._id);
+        }
+      
         // Redirect to created post
         this.$router.push(`/posts/${newPost._id}`);
       } catch (error) {
