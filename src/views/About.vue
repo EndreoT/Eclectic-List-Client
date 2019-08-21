@@ -1,30 +1,18 @@
 <template>
-  <div
-    id="page-content"
-    class="container"
-  >
-    <h1 id="page-title">
-      About
-    </h1>
-    <div
-      id="content"
-      class="container"
-    >
+  <div id="page-content" class="container">
+    <h1 id="page-title">About</h1>
+    <div id="content" class="container">
       <h2>Description</h2>
 
       <p class="text-left">
-        Eclectic List is a
-        full stack web application that lets users create posts to sell items that can include images,
-        comment on other posts, and choose profile avatar images.
+        Eclectic List is a classified advertisements full stack web application allowing users to create posts about items for sale
+        Posts contain text, images, and a category, users can comment on the posts, and users can select an avatar image
         This website draws inspiration from sites as
         <a
           href="https://seattle.craigslist.org/"
           target="_blank"
         >Craigslist</a> and
-        <a
-          href="https://www.reddit.com/"
-          target="_blank"
-        >Reddit</a>.
+        <a href="https://www.reddit.com/" target="_blank">Reddit</a>.
       </p>
 
       <h2>Technical Points</h2>
@@ -34,14 +22,8 @@
           href="https://www.mongodb.com/"
           target="_blank"
         >MongoDB</a> for the database,
-        <a
-          href="https://expressjs.com/"
-          target="_blank"
-        >Express.js</a> for the web server framework,
-        <a
-          href="https://vuejs.org/"
-          target="_blank"
-        >Vue.js</a> for the frontend framework,
+        <a href="https://expressjs.com/" target="_blank">Express.js</a> for the web server framework,
+        <a href="https://vuejs.org/" target="_blank">Vue.js</a> for the frontend framework,
         and
         <a
           href="https://nodejs.org/en/"
@@ -56,6 +38,7 @@
           href="http://www.passportjs.org/"
           target="_blank"
         >Passport.js</a> middleware.
+        Mocha and Chai unit tests are included for the server.
         The
         <a
           href="https://vuex.vuejs.org/"
@@ -70,10 +53,7 @@
 
       <p class="text-left">
         This app is hosted on two
-        <a
-          href="https://www.heroku.com/"
-          target="_blank"
-        >Heroku</a> apps:
+        <a href="https://www.heroku.com/" target="_blank">Heroku</a> apps:
         First, the server side creates a RESTful API. An example of the the '/api/posts' endpoint can be found
         <a
           href="https://eclectic-list-server.herokuapp.com/api/posts"
@@ -98,10 +78,13 @@
       <!-- Bio -->
       <h2>Bio for Tristan Endreo</h2>
       <p class="text-left">
-        Full stack and backend software developer looking forward to building software that helps improve the lives of people.
-        Strong experience in object-oriented languages including JavaScript and Python, as well as technologies such as Node.js, Django, React, Vue.js, and Typescript.
-        Brings to the team a fast and motivated learner, a collaborative team player, and the ability to clearly teach complex ideas to others.
-        Graduate of University of Washington Full Stack Certificate in addition to over a year of prior programming experience in Python.
+        Full stack software developer looking forward to building applications that help improve the lives of people.
+        Strong experience in object-oriented languages including JavaScript and Python,
+        as well as technologies such as Node.js, Django, React, Vue.js, and Typescript.
+        Brings to the team a robust technical skill set, a fast and motivated learner, a collaborative group member,
+        and the ability to clearly teach complex ideas to others.
+        Graduate of University of Washington Full Stack Coding Certificate in addition to over a year of Python programming experience.
+        Looking to deliver proficiency and excitement to an organization while furthering my experience as a software developer.
       </p>
       <p class="text-left">
         Born and raised in Seattle, WA, I love the North West. My interests include improving my
@@ -110,20 +93,13 @@
       </p>
 
       <!-- Contact Section -->
-      <section
-        id="contact"
-        class="page-section"
-      >
+      <section id="contact" class="page-section">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
-              <h2 class="mt-0">
-                Let's Get In Touch
-              </h2>
-              <hr class="divider my-4">
-              <p class="text-muted mb-5">
-                Contact Tristan
-              </p>
+              <h2 class="mt-0">Let's Get In Touch</h2>
+              <hr class="divider my-4" />
+              <p class="text-muted mb-5">Contact Tristan</p>
             </div>
           </div>
           <div class="row">
@@ -134,18 +110,11 @@
             <div class="col-lg-2 mr-auto text-center">
               <svg class="fas fa-envelope fa-3x mb-3 text-muted" />
               <!-- Make sure to change the email address in anchor text AND the link below! -->
-              <a
-                class="d-block"
-                href="mailto:endreotm@gmail.com"
-              >endreotm@gmail.com</a>
+              <a class="d-block" href="mailto:endreotm@gmail.com">endreotm@gmail.com</a>
             </div>
             <div class="col-lg-2 mr-auto text-center">
               <svg class="fab fa-github fa-3x mb-3 text-muted" />
-              <a
-                class="d-block"
-                href="https://github.com/EndreoT"
-                target="_blank"
-              >Github</a>
+              <a class="d-block" href="https://github.com/EndreoT" target="_blank">Github</a>
             </div>
             <div class="col-lg-2 mr-auto text-center">
               <svg class="fab fa-linkedin fa-3x mb-3 text-muted" />

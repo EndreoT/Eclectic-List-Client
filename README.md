@@ -3,41 +3,30 @@
 ## Deployed Links
 Client app: https://eclectic-list.herokuapp.com/
 
-Server API: https://eclectic-list-server.herokuapp.com/api/posts
+Server API: https://eclectic-list-server.herokuapp.com
+
+Server example endpoint: https://eclectic-list-server.herokuapp.com/api/posts
 
 Server code: https://github.com/EndreoT/Eclectic-List-Server
 
-### Description
-Node.js server for eclectic-list full stack application. Eclectic List is a concept full stack web application for creating posts for selling items that can include images, comment on user posts, and choose profile avatar images. This website draws inspiration from sites as Craigslist and Reddit. 
+## Description
+The Node and Express.js server for Eclectic List. Eclectic List is a classified advertisements full stack web application allowing users to create posts about items for sale. Posts can contain text, images, and a category, users can comment on the posts, and users can select an avatar image. This website draws inspiration from sites as Craigslist and Reddit. 
 
-### Motivation
-The intent of this app is to showcase a full stack web application built by Tristan Endreo, specifically the Node.js backend. Currenly, the intent is not for users to actually post real items for sale on this site. Instead, please feel free to register a 'mock' profile, create, edit, and delete posts, and comment on any post to better view Tristan's skills as a full stack and backend web developer. 
+## Motivation
+The intent of this app is to give users a platform for easily selling items for free and discussing those items, compared with other sites which monitize the posting of items.
 
-### App deployed links
-```
-Client: https://eclectic-list.herokuapp.com/
-Server: https://eclectic-list-server.herokuapp.com/<endpoint>
-Server example: https://eclectic-list-server.herokuapp.com/api/posts
-```
+## Results 
+This app uses the MEVN stack, which stands for MongoDB for the database, Express.js for the web server, Vue.js for the frontend framework, and Node.js for the run-time environment. Securely access protected routes using a JSON Web Token (JWT), and backend authentication is routed through the Passport.js middleware. Mocha and Chai unit tests are included. The server is now written in Typescript!
 
-### Installation
-```
-cd path/to/eclectic-list-client
-npm install
-touch .env
-```
-This app uses the newrelic (https://newrelic.com/) Heroku add on, which is optional. If you want to use newrelic, add the following to the .env file:
-```
-NEW_RELIC_LICENSE_KEY=<newrelic license key>
-```
+The Vuex library for Vue allows for persistent user login. Lastly, images are stored using Cloudinary hosting. 
 
-### Results 
-This app uses the MEVN stack, which stands for MongoDB for the database, Express.js for the web server framework, Vue.js for the frontend framework, and Node.js for the run-time environment. Securely access protected routes using a JSON Web Token (JWT), and backend authentication is routed through the Passport.js middleware. The Vuex library for Vue allows for persistent user login. Lastly, images are stored using Cloudinary hosting.
+This app is hosted on two Heroku apps: First, the server side exposes a RESTful API design pattern. Second, the Vue.js app is also served by an Express.js server on Heroku. This separation of client and server, as well as the REST API, paves the road for the possibile development of a native mobile client in the future.
 
-This app is hosted on two Heroku apps: First, the server side creates a RESTful API. An example of the the '/api/posts' endpoint can be found here. Second, the Vue.js app is also served by an Express.js server on Heroku. 
-
-### Future Improvements
+## Future improvements
 - [ ] Implement Typescript for Vue.js client 
+- [ ] Allow users to edit and delete comments
+- [ ] Add locations to posts
+- [ ] Allow for direct messages between users in real time
 
 ### Automatic build
 Files are automatically built on Heroku using "heroku-postbuild" script
